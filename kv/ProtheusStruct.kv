@@ -1,0 +1,196 @@
+#:kivy 1.11.1
+#:import utils kivy.utils
+#:import Factory kivy.factory.Factory
+
+<MainInterface>:
+    Home:
+        name: 'Home'
+    ProcessingScreen:
+        name: 'ProcessingScreen'
+    ResultScreen:
+        name: 'ResultScreen'
+
+##################################################################################?
+<Home>:
+    BoxLayout:
+        orientation:'vertical'
+        padding: 100
+        spacing: 15
+        canvas:    
+            Color:
+                rgba: utils.get_color_from_hex('#6D6D6D')
+            Rectangle:
+                # self here refers to the widget i.e BoxLayout
+                pos: self.pos
+                size: self.size
+        Image:
+            source: app.resource_path("logo.png")
+            size: self.texture_size
+        BoxLayout:
+            id:HomeWidgets
+            spacing:10
+            size_hint_y:None
+            height: 60
+            TextInput:
+                id:inputDir
+                font_size: 35
+                multiline: False   
+                canvas.after:    
+                    Color:
+                        rgba: utils.get_color_from_hex('#6D6D6D')
+                    Line:
+                        width: 4
+                        rounded_rectangle: (self.x, self.y, self.width, self.height,10)
+            Button:
+                id:btOpenDir
+                size_hint_x:None
+                width:root.ids.HomeWidgets.width*0.2
+                background_normal:app.resource_path("buttonSearchIni.png")
+                background_down:app.resource_path("buttonDown.png")
+                on_release:root.btDirOpen()
+                Image:
+                    source: app.resource_path("dirIcon.png")
+                    allow_stretch:True
+                    keep_ratio: True
+                    size_hint_y:None
+                    height: root.ids.btOpenDir.height*0.9
+                    size_hint_x:None
+                    width: root.ids.btOpenDir.width
+                    center_x: root.ids.btOpenDir.center_x
+                    center_y: root.ids.btOpenDir.center_y+18
+        Button:
+            id:ProcessStart
+            text:'Iniciar'
+            size_hint_y:None
+            height:60
+            font_size: 40
+            font:"Roboto-Bold"
+            background_normal:app.resource_path("buttonProcessStart.png")
+            background_down:app.resource_path("buttonDown.png")
+            on_release: app.root.transition.direction = 'left';app.root.current = 'ProcessingScreen';app.root.ProcessingCall()
+
+<PopMensageError>:
+    id:PopMensageError
+    title: 'Atenção'
+    size_hint_x:None
+    width: 200
+    size_hint_y:None
+    height: 150
+    padding:15
+    spacing:20
+    separator_color: 1,1,1,1
+    BoxLayout:
+        orientation:'vertical'
+        spacing:5
+        padding:5
+        canvas.before:    
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text:'Pasta Não encontrada!'
+            color:utils.get_color_from_hex('#010101')
+        Button:
+            id:btok
+            text: 'ok'  
+            on_release: root.dismiss()
+            background_normal:app.resource_path("BtCleangray.png")
+            background_down:app.resource_path("buttonDown.png")
+
+##################################################################################?
+<ProcessingScreen>:
+    BoxLayout:
+        orientation:'vertical'
+        padding: 200
+        spacing: 15
+        canvas:    
+            Color:
+                rgba: utils.get_color_from_hex('#6D6D6D')
+            Rectangle:
+                # self here refers to the widget i.e BoxLayout
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation:'vertical'
+            spacing:20
+            padding: 15
+            #Cor de fundo do Box    
+            canvas.before:    
+                Color:
+                    rgba: utils.get_color_from_hex('#606060')
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: 10,10,10,10
+            ProgressBar:
+                id:progressBarMain
+                max:10
+                size_hint_y:None
+                height:40
+            Label:
+                id:lbDescprogressMain
+                font_size: 15
+                font:"Roboto-Bold"
+            BoxLayout:
+                id: bodyProgress
+                orientation:'vertical'
+
+<BtNextScreen>:
+    id:BtNextScreen
+    text:'Próximo >'
+    font_size:35
+    background_normal:app.resource_path("BtCleangray.png")
+    background_down:app.resource_path("buttonDown.png")
+    on_release:app.root.transition.direction = 'left';app.root.current = 'ResultScreen';app.root.AddWidgetsToResultScreen()
+
+<BtReturn>:
+    id:BtNextScreen
+    text:'< Anterior'
+    font_size:25
+    background_normal:app.resource_path("BtCleangray.png")
+    background_down:app.resource_path("buttonDown.png")
+    on_release:app.root.transition.direction = 'right';app.root.current = 'Home'
+
+
+##################################################################################?
+<ResultScreen>:
+    ResultScreenCorpo:
+
+<ResultScreenCorpo>:
+    id:ScrowViwerResult
+    BoxLayout:
+        id:ResultScreenCorpo
+        orientation:'vertical'
+        size_hint_y:None
+        height:self.minimum_height
+        spacing:20
+        padding: 35
+        #Cor de fundo do Box
+        canvas:    
+            Color:
+                rgba: utils.get_color_from_hex('#6D6D6D')
+            Rectangle:
+                # self here refers to the widget i.e BoxLayout
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_y:None
+            height:50
+            #Cor de fundo do Box
+            canvas.before:    
+                Color:
+                    rgba: utils.get_color_from_hex('#606060')
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: 10,10,10,10
+            Button:
+                id:BtHome
+                text: 'Home'
+                font_size:35
+                background_normal:app.resource_path("buttonSearchIni.png")
+                background_down:app.resource_path("buttonDown.png")
+                on_release:app.root.transition.direction = 'left';app.root.current = 'Home'
