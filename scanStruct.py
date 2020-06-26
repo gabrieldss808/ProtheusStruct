@@ -166,7 +166,6 @@ class scanStruct():
         appserverObject = appserver()
         appserverObject.cdir = AppArquivo.name
 
-
         Config = ConfigParser()
         Config.read_file(AppArquivo)
 

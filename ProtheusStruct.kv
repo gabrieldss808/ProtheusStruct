@@ -9,7 +9,6 @@
         name: 'ProcessingScreen'
     ResultScreen:
         name: 'ResultScreen'
-
 ##################################################################################?
 <Home>:
     BoxLayout:
@@ -71,7 +70,7 @@
 
 <PopMensageError>:
     id:PopMensageError
-    title: 'Atenï¿½ï¿½o'
+    title: 'Atenção'
     size_hint_x:None
     width: 200
     size_hint_y:None
@@ -177,21 +176,24 @@
     TopMenu:
 
     ScrollView:
-        BoxLayout:
-            id:ResultScreenCorpo
-            orientation:'vertical'
-            size_hint_y:None
-            height:self.minimum_height
-            spacing:20
-            padding: 35
-            #Cor de fundo do Box
-            canvas:    
-                Color:
-                    rgba: utils.get_color_from_hex('#6D6D6D')
-                Rectangle:
-                    # self here refers to the widget i.e BoxLayout
-                    pos: self.pos
-                    size: self.size
+        id:ScrollViewResult
+
+
+<ResultScreenDados>:
+    id:ResultScreenCorpo
+    orientation:'vertical'
+    size_hint_y:None
+    height:self.minimum_height
+    spacing:20
+    padding: 35
+    #Cor de fundo do Box
+    canvas:    
+        Color:
+            rgba: utils.get_color_from_hex('#6D6D6D')
+        Rectangle:
+            # self here refers to the widget i.e BoxLayout
+            pos: self.pos
+            size: self.size
 
 <TopMenu>:
     orientation:'vertical'
@@ -252,7 +254,7 @@
 
 <AppserverVisual>:
     orientation:'vertical'
-    spacing:20
+    spacing:5
     padding: 15
     size_hint_y:None
     height: 300
@@ -264,23 +266,43 @@
             pos: self.pos
             size: self.size
             radius: 10,10,10,10
+    Label:
+        id:lbPositionView
+        font_size:35
+        font:"Roboto-Bold"
+        text_size: self.width, self.height
+        pos_hint: {'center_x': .5, 'center_y': .5}
     BoxLayout:
-        spacing: 5
+        spacing: 10
         size_hint_y:None
-        height: 40
+        height: root.height*0.20
+        
         BoxLayout:
             Label:
                 id: DirAppServer
-                text:'C:\TOTVS12\PROTHEUS\BIN'
+                font_size:25
+                font:"Roboto-Bold"
                 text_size: self.width, self.height
                 pos_hint: {'center_x': .5, 'center_y': .5}
         BoxLayout:
             size_hint_x: None
-            width:50
+            width:80
             Button:
                 id: btOpenDirAppserver
                 text:'Abrir'
-                font_size:10
+                font_size:20
                 background_normal:app.resource_path("BtCleangray.png")
                 background_down:app.resource_path("buttonDown.png")
+                on_release: root.BtOpenDir()
+    #Linha de separação
+    BoxLayout:
+        size_hint_y:None
+        height: 4
+        canvas:  
+            Color:
+                rgba: 1, 1, 1, 1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: 5,5,5,5
 

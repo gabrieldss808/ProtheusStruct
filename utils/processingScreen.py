@@ -97,18 +97,30 @@ class ProcessingScreen(Screen):
         
         self.isCreatingWidgets = True
 
+        NumberPosition = 1
+
         if(self.scanStructObject.getApperservers() != None  ):
             for appserverObject in self.scanStructObject.getApperservers():
 
-                appserverVisu = AppserverVisual(appserverObject)
+                appserverVisu = AppserverVisual(appserverObject,NumberPosition)
+
                 self.appserversWidgets.append(appserverVisu)
+
+                NumberPosition += 1
         
+        NumberPosition = 1
+
         if(self.scanStructObject.getSmartclients() != None):
             for smartclientObject in self.scanStructObject.getSmartclients():
 
-                smartclientVisu = SmartclientVisual(smartclientObject)
+                smartclientVisu = SmartclientVisual(smartclientObject,NumberPosition)
+
                 self.smartclientsWidgets.append(smartclientVisu)
-            
+
+                NumberPosition += 1
+        
+        NumberPosition = 0
+
         self.isCreatingWidgets = False
         self.wasCreateWidgets = True
 

@@ -18,14 +18,13 @@ from kivy.uix.popup import Popup
 from time import time, sleep
 from utils.processingScreen import ProcessingScreen
 from utils.resultScreen import ResultScreen
-from utils.resultScreen import MainDirVisualization
-
-
 
 class MainInterface(ScreenManager):
 
     MainDir = ''
-    
+    appserversWidgets = list()
+    smartclientsWidgets = list()
+
     def ProcessingCall(self):
 
 
@@ -43,26 +42,15 @@ class MainInterface(ScreenManager):
             self.current = 'Home'
 
     @mainthread
-    def AddWidgetsToResultScreen(self, Widgest):
+    def AddWidgetsToResultScreen(self):
 
-        executeTask = threading.Thread(target=self.TaskAddWidgetsToResultScreen,args=[])
-        executeTask.start()
+        self.appserversWidgets =  self.children[1].getAppserversWidgets()
+        self.smartclientsWidgets = self.children[1].getSmartclientsWidgets()
 
-    def TaskAddWidgetsToResultScreen(self,):
+        self.children[0].children[0].ids.ScrollViewResult.clear_widgets()
+        
+        self.children[0].ConstructResults()
 
-        self.children[0].children[0].ids.ResultScreenCorpo.clear_widgets()
-
-        sleep(1)
-
-        self.children[0].children[0].ids.ResultScreenCorpo.add_widget(MainDirVisualization(self.MainDir,len(self.children[1].getAppserversWidgets()),len(self.children[1].getSmartclientsWidgets())))
-
-        sleep(1.5)
-
-        for AppserversWidget in self.children[1].getAppserversWidgets():
-
-            self.children[0].children[0].ids.ResultScreenCorpo.add_widget(AppserversWidget)
-            sleep(1)
-    
 class PopMensageError(Popup):
     pass
 
