@@ -90,7 +90,7 @@
                 pos: self.pos
                 size: self.size
         Label:
-            text:'Pasta Nï¿½o encontrada!'
+            text:'Pasta Não encontrada!'
             color:utils.get_color_from_hex('#010101')
         Button:
             id:btok
@@ -113,6 +113,7 @@
                 pos: self.pos
                 size: self.size
         BoxLayout:
+            id:InformationBox
             orientation:'vertical'
             spacing:20
             padding: 15
@@ -131,7 +132,10 @@
                 height:40
             Label:
                 id:lbDescprogressMain
-                font_size: 15
+                font_size: 25
+                text_size: self.width, None
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                borderwidth:30
                 font:"Roboto-Bold"
             BoxLayout:
                 id: bodyProgress
@@ -159,7 +163,10 @@
     ResultScreenCorpo:
 
 <ResultScreenCorpo>:
-    id:ScrowViwerResult
+    id:Result
+    orientation:'vertical'
+    spacing:20
+    padding: 35
     canvas:    
         Color:
             rgba: utils.get_color_from_hex('#6D6D6D')
@@ -167,23 +174,26 @@
             # self here refers to the widget i.e BoxLayout
             pos: self.pos
             size: self.size
-    BoxLayout:
-        id:ResultScreenCorpo
-        orientation:'vertical'
-        size_hint_y:None
-        height:self.minimum_height
-        spacing:20
-        padding: 35
-        #Cor de fundo do Box
-        canvas:    
-            Color:
-                rgba: utils.get_color_from_hex('#6D6D6D')
-            Rectangle:
-                # self here refers to the widget i.e BoxLayout
-                pos: self.pos
-                size: self.size
+    TopMenu:
 
-<MenuSuperior>:
+    ScrollView:
+        BoxLayout:
+            id:ResultScreenCorpo
+            orientation:'vertical'
+            size_hint_y:None
+            height:self.minimum_height
+            spacing:20
+            padding: 35
+            #Cor de fundo do Box
+            canvas:    
+                Color:
+                    rgba: utils.get_color_from_hex('#6D6D6D')
+                Rectangle:
+                    # self here refers to the widget i.e BoxLayout
+                    pos: self.pos
+                    size: self.size
+
+<TopMenu>:
     orientation:'vertical'
     size_hint_y:None
     height:50
@@ -203,12 +213,49 @@
         background_down:app.resource_path("buttonDown.png")
         on_release:app.root.transition.direction = 'left';app.root.current = 'Home'
 
+<MainDirVisualization>:
+    orientation:'vertical'
+    spacing:1
+    padding: 15
+    size_hint_y:None
+    height: 300
+    #Cor de fundo do Box    
+    canvas.before:    
+        Color:
+            rgba: utils.get_color_from_hex('#4285F4')
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: 10,10,10,10
+    Label:
+        text:'Olha o que Encontrei :)'
+        font_size:35
+        font:"Roboto-Bold"
+    #Linha de separação
+    BoxLayout:
+        size_hint_y:None
+        height: 4
+        canvas:  
+            Color:
+                rgba: 1, 1, 1, 1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: 5,5,5,5
+    Label:
+        id:LbTextMainDir
+        font_size: 25
+        font:"Roboto-Bold"
+        text_size: self.width, self.height
+        pos_hint: {'center_x': .5, 'center_y': .5}
+
+
 <AppserverVisual>:
     orientation:'vertical'
     spacing:20
     padding: 15
     size_hint_y:None
-    height: 100
+    height: 300
     #Cor de fundo do Box    
     canvas.before:    
         Color:
@@ -217,3 +264,23 @@
             pos: self.pos
             size: self.size
             radius: 10,10,10,10
+    BoxLayout:
+        spacing: 5
+        size_hint_y:None
+        height: 40
+        BoxLayout:
+            Label:
+                id: DirAppServer
+                text:'C:\TOTVS12\PROTHEUS\BIN'
+                text_size: self.width, self.height
+                pos_hint: {'center_x': .5, 'center_y': .5}
+        BoxLayout:
+            size_hint_x: None
+            width:50
+            Button:
+                id: btOpenDirAppserver
+                text:'Abrir'
+                font_size:10
+                background_normal:app.resource_path("BtCleangray.png")
+                background_down:app.resource_path("buttonDown.png")
+

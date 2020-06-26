@@ -29,13 +29,19 @@ class ProcessingScreen(Screen):
 
         self.scanStructObject = scanStruct(cPath)
 
-        self.ids.bodyProgress.clear_widgets()
+        self.ClearWidgets()
 
         executeTask = threading.Thread(target=self.executeScanProcess,args=[])
         executeTask.start()
 
         runStatusProcessTaks = threading.Thread(target=self.runStatusProcess, args=[])
         runStatusProcessTaks.start()    
+
+    def ClearWidgets(self):
+
+        self.ids.bodyProgress.clear_widgets()
+        self.appserversWidgets.clear()
+        self.smartclientsWidgets.clear()
 
     def runStatusProcess(self):
 
@@ -91,18 +97,24 @@ class ProcessingScreen(Screen):
         
         self.isCreatingWidgets = True
 
-        for appserverObject in self.scanStructObject.getApperservers():
+        if(self.scanStructObject.getApperservers() != None  ):
+            for appserverObject in self.scanStructObject.getApperservers():
 
-            appserverVisu = AppserverVisual(appserverObject)
-            self.appserversWidgets.append(appserverVisu)
+                appserverVisu = AppserverVisual(appserverObject)
+                self.appserversWidgets.append(appserverVisu)
         
-        for smartclientObject in self.scanStructObject.getSmartclients():
+        if(self.scanStructObject.getSmartclients() != None):
+            for smartclientObject in self.scanStructObject.getSmartclients():
 
-            smartclientVisu = SmartclientVisual(smartclientObject)
-            self.smartclientsWidgets.append(smartclientVisu)
-        
+                smartclientVisu = SmartclientVisual(smartclientObject)
+                self.smartclientsWidgets.append(smartclientVisu)
+            
         self.isCreatingWidgets = False
         self.wasCreateWidgets = True
+
+    def getWidgets(self):
+
+        return {self.getAppserversWidgets(),getSmartclientsWidgets()}
     
     def getAppserversWidgets(self):
 
