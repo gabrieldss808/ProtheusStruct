@@ -27,3 +27,6 @@ class AppserverVisual(BoxLayout):
     def BtOpenDir(self):
 
         subprocess.Popen('explorer ' + self.appserverInput.cdir.rstrip('appserver.ini'))
+
+class ScreenDataAppServerVisual(ScreenManager):
+    pass

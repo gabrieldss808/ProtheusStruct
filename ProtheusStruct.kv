@@ -254,10 +254,10 @@
 
 <AppserverVisual>:
     orientation:'vertical'
-    spacing:5
+    spacing:10
     padding: 15
     size_hint_y:None
-    height: 300
+    height: 600
     #Cor de fundo do Box    
     canvas.before:    
         Color:
@@ -271,19 +271,18 @@
         font_size:35
         font:"Roboto-Bold"
         text_size: self.width, self.height
-        pos_hint: {'center_x': .5, 'center_y': .5}
+        pos_hint: {'left': 1}
     BoxLayout:
         spacing: 10
         size_hint_y:None
-        height: root.height*0.20
-        
+        height: 60
         BoxLayout:
             Label:
                 id: DirAppServer
                 font_size:25
                 font:"Roboto-Bold"
                 text_size: self.width, self.height
-                pos_hint: {'center_x': .5, 'center_y': .5}
+                pos_hint: {'left': 1}
         BoxLayout:
             size_hint_x: None
             width:80
@@ -305,4 +304,29 @@
                 pos: self.pos
                 size: self.size
                 radius: 5,5,5,5
-
+    BoxLayout:
+        size_hint_y:None
+        height:400
+        ScrollView:
+            BoxLayout:
+                id:MainInformationAppServer
+                orientation:'vertical'
+                spacing:25
+                size_hint_y:None
+                height:self.minimum_height
+                Label:
+                    text:'Informações Principais'
+                    font_size:10
+                    font:"Roboto-Bold"
+                    pos_hint: {'left': 1}
+                #Linha de separação
+                BoxLayout:
+                    size_hint_y:None
+                    height: 2
+                    canvas:  
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: 2,2,2,2
