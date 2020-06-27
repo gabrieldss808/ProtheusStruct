@@ -257,7 +257,7 @@
     spacing:10
     padding: 15
     size_hint_y:None
-    height: 600
+    height: 400
     #Cor de fundo do Box    
     canvas.before:    
         Color:
@@ -290,7 +290,7 @@
                 id: btOpenDirAppserver
                 text:'Abrir'
                 font_size:20
-                background_normal:app.resource_path("BtCleangray.png")
+                background_normal:app.resource_path("buttonBlue.png")
                 background_down:app.resource_path("buttonDown.png")
                 on_release: root.BtOpenDir()
     #Linha de separação
@@ -306,27 +306,59 @@
                 radius: 5,5,5,5
     BoxLayout:
         size_hint_y:None
-        height:400
+        height:240
         ScrollView:
             BoxLayout:
                 id:MainInformationAppServer
                 orientation:'vertical'
-                spacing:25
+                spacing:20
+                padding: 5
                 size_hint_y:None
                 height:self.minimum_height
-                Label:
-                    text:'Informações Principais'
-                    font_size:10
-                    font:"Roboto-Bold"
-                    pos_hint: {'left': 1}
-                #Linha de separação
                 BoxLayout:
                     size_hint_y:None
-                    height: 2
-                    canvas:  
+                    height: 1
+                Label:
+                    text:"Informações Principais"
+                    font_size:20
+                    font:"Roboto-Bold"
+                    text_size: self.width, self.height
+                    pos_hint: {'left':1}
+                BoxLayout:
+                    size_hint_y:None
+                    height:45
+                    padding:10
+                    spacing: 5
+                    canvas.before:    
                         Color:
-                            rgba: 1, 1, 1, 1
+                            rgba: root.ColorServiceStatus()
                         RoundedRectangle:
                             pos: self.pos
                             size: self.size
-                            radius: 2,2,2,2
+                            radius: 5,5,5,5
+                    Label:
+                        id:lbServiceStatus
+                        font_size:15
+                        font:"Roboto-Bold"
+                        text_size: self.width, None
+                        pos_hint: {'left':1}
+
+                    BoxLayout:
+                        size_hint_x:None
+                        width:2
+                        canvas.before:    
+                            Color:
+                                rgba: 1,1,1,1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: 5,5,5,5
+                    Label:
+                        id:lbServicePort
+                        font_size:20
+                        font:"Roboto-Bold"
+                        text_size: self.width, None
+                        pos_hint: {'left':1}
+
+                        
+                
