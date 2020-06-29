@@ -89,7 +89,7 @@
                 pos: self.pos
                 size: self.size
         Label:
-            text:'Pasta Não encontrada!'
+            text:'Pasta Nï¿½o encontrada!'
             color:utils.get_color_from_hex('#010101')
         Button:
             id:btok
@@ -233,7 +233,7 @@
         text:'Olha o que Encontrei :)'
         font_size:35
         font:"Roboto-Bold"
-    #Linha de separação
+    #Linha de separaï¿½ï¿½o
     BoxLayout:
         size_hint_y:None
         height: 4
@@ -293,7 +293,7 @@
                 background_normal:app.resource_path("buttonBlue.png")
                 background_down:app.resource_path("buttonDown.png")
                 on_release: root.BtOpenDir()
-    #Linha de separação
+    #Linha de separacao
     BoxLayout:
         size_hint_y:None
         height: 4
@@ -324,14 +324,14 @@
                     font:"Roboto-Bold"
                     text_size: self.width, self.height
                     pos_hint: {'left':1}
-                BoxLayout:
+                BoxLayout: 
                     size_hint_y:None
-                    height:45
+                    height:60
                     padding:10
                     spacing: 5
                     canvas.before:    
                         Color:
-                            rgba: root.ColorServiceStatus()
+                            rgba: root.GetColorServiceStatus()
                         RoundedRectangle:
                             pos: self.pos
                             size: self.size
@@ -359,6 +359,15 @@
                         font:"Roboto-Bold"
                         text_size: self.width, None
                         pos_hint: {'left':1}
+                
+                Label:
+                    text:'Conteúdo principal do Appserver.ini: '
+                Label:
+                    id:lbContentAppserverIni
+                    font_size:15
+                    font:"Roboto-Bold"                    
+                    pos_hint: {'left':1}
+
 
                         
                 
