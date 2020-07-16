@@ -10,6 +10,13 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Protheus Struct Degug",
+            "type": "python",
+            "request": "launch",
+            "program": "ProtheusStruct.pyw",
+            "console": "integratedTerminal"
         }
     ]
 }
