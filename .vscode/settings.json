@@ -3,6 +3,10 @@
     "totvsLanguageServer.welcomePage": false,
     "totvsLanguageServer.askEncodingChange": true,
     "cSpell.words": [
-        "Protheus"
+        "Protheus",
+        "Se",
+        "Seção",
+        "o",
+        "strftime"
     ]
 }

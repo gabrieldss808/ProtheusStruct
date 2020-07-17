@@ -1,4 +1,4 @@
-from tkinter import Frame
+from tkinter.ttk import Frame
 
 class HomeScreen(Frame):
 

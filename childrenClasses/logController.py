@@ -1,3 +1,4 @@
+from datetime import datetime
 
 class logController():
 
@@ -11,6 +12,8 @@ class logController():
     def consoleLogAdd(self, menssageText):
 
         self.consoleLog = open('strucProt.log','a')
+
+        self.consoleLog.write("####" + datetime.now().strftime("%d/%m/%Y %H:%M:%S") + '\n')
 
         self.consoleLog.write(menssageText + '\n')
 

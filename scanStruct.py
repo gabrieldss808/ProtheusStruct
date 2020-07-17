@@ -1,11 +1,13 @@
 import datetime, time
 import win32.lib.win32serviceutil 
 
+from threading import Thread
+from copy import copy,deepcopy
 from pathlib import Path
 from configparser import ConfigParser
-from utils.logController import logController
-from utils.classChildrens import appserver, smartclient, RPO
-from utils.validService import ValidService
+from childrenClasses.logController import logController
+from childrenClasses.classChildrens import appserver, smartclient, RPO
+from childrenClasses.validService import ValidService
 
 
 #Classe responsável pelo Processamento e obtenção dos dados da estrutura Protheus
@@ -15,7 +17,9 @@ class scanStruct():
     __smartclients = list()
     __Struct = Path
     appserverKeys = list()
-    smartclienKeys = list()
+    smartclientKeys = list()
+    appserverNameArq = ""
+    smartclientNameArq = ""
     cNameRPO = ''
     __log = logController
     __Maindir = ''
@@ -28,7 +32,9 @@ class scanStruct():
         self.__Maindir = dir
         self.__Struct = Path(dir)
         self.appserverKeys = {'SOURCEPATH','PORT','ROOTPATH','SERVER','ALIAS'}
-        self.smartclienKeys = {'SERVER','PORT','ENVSERVER'}
+        self.smartclientKeys = {'SERVER','PORT','ENVSERVER'}
+        self.appserverNameArq = "appserver"
+        self.smartclientNameArq = "smartclient"
         self.cNameRPO = 'tttp120.rpo'
         self.__log = logController()
         self.__ValidServ = ValidService()
@@ -36,6 +42,14 @@ class scanStruct():
     def getProgressStatus(self):
 
         return self.__progressStatus
+
+    def addAppServerKey(self,appServerKey=''):
+
+        self.appserverKeys.add(appServerKey.upper())
+
+    def addSmartClientKey(self,smartClientKey=''):
+
+        self.smartclientKeys.add(smartClientKey.upper())
 
     def execute(self):
 
@@ -52,8 +66,9 @@ class scanStruct():
         try:
 
             self.__log.consoleLogAdd('Procurando Appservers...')
-            self.__searchAppservers()
-            self.__log.consoleLogAdd('Foram encontrados ' + str(len(self.__appservers)) + ' AppServers Na Busca da Pasta: ' + self.__Maindir)
+
+            taskSearch = Thread(target=self.__searchAppservers,args=[])
+            taskSearch.start()
         except Exception as appserverError:
             
             StringErroAp+= '###########################################################\n'
@@ -65,8 +80,9 @@ class scanStruct():
         try:
 
             self.__log.consoleLogAdd('Procurando Smartclients...')
-            self.__searchSmartclient()
-            self.__log.consoleLogAdd('Foram encontrados ' + str(len(self.__smartclients)) + ' Smartclients Na Busca da Pasta: ' + self.__Maindir)
+
+            taskSearch = Thread(target=self.__searchSmartclient,args=[])
+            taskSearch.start()
         except Exception as smartclientError:
 
             StringErroSmar+= '###########################################################\n'
@@ -90,18 +106,30 @@ class scanStruct():
         if(len(self.__appservers) > 0):
             
             return self.__appservers
+        else:
+
+            return {}
     
     def getSmartclients(self):
 
         if(len(self.__smartclients) > 0):
             
             return self.__smartclients
+        else:
+
+            return {}
 
     def __searchSmartclient(self):
 
         StringErroSmar = ''
+        
+        if(self.smartclientNameArq == ""):
 
-        smartclientsPure = list(self.__Struct.glob('**/smartclient.ini'))
+            smartclientsPure = list(self.__Struct.glob('**/*'+ self.smartclientNameArq +'.ini'))
+        else:
+
+            smartclientsPure = list(self.__Struct.glob('**/*'+ self.smartclientNameArq +'*.ini'))
+
 
         for smartclientPure in smartclientsPure:
 
@@ -116,12 +144,15 @@ class scanStruct():
                 StringErroSmar+= '###########################################################\n'
 
                 self.__log.consoleLogAdd(StringErroSmar)
+        
+        self.__log.consoleLogAdd('Foram encontrados ' + str(len(self.__smartclients)) + ' Smartclients Na Busca da Pasta: ' + self.__Maindir)
 
     def __createSmartclientObject(self,smartclientPure):
 
         SmarArquivo = open(smartclientPure)
+        boolSmartClient = False
 
-        smartclientObject = smartclient()
+        smartclientObject = copy(smartclient())
         smartclientObject.cdir = SmarArquivo.name
 
         Config = ConfigParser()
@@ -131,21 +162,29 @@ class scanStruct():
 
             for properties in Config[section].keys():
 
-                if(properties.upper() in self.smartclienKeys):
+                if(properties.upper() in self.smartclientKeys):
                     
                     smartclientObject.cContent += 'Seção: ' + section + '\n\t ' + properties + ':'+Config[section][properties] + ' \n '
+                    boolSmartClient = True
         
-        self.__smartclients.append(smartclientObject)
+        if(boolSmartClient):
+
+            self.__smartclients.append(smartclientObject)
+
         Config = None
 
     def __searchAppservers(self):
 
         StringErroAp = ''
 
-        appserversPure = list(self.__Struct.glob('**/appserver.ini'))
+        if(self.appserverNameArq == ""):
+
+            appserversPure = list(self.__Struct.glob('**/*' + self.appserverNameArq + '.ini'))
+        else:
+
+            appserversPure = list(self.__Struct.glob('**/*' + self.appserverNameArq + '*.ini'))
 
         for appServerPure in appserversPure:
-
 
             try:
 
@@ -158,12 +197,16 @@ class scanStruct():
                 StringErroAp+= '###########################################################\n'
 
                 self.__log.consoleLogAdd(StringErroAp)
+
+        self.__log.consoleLogAdd('Foram encontrados ' + str(len(self.__appservers)) + ' AppServers Na Busca da Pasta: ' + self.__Maindir)
   
     def __createAppserverObject(self,appServerPure):
 
+        booleanSection = True
+        boolAppserver = False
         AppArquivo = open(appServerPure)
 
-        appserverObject = appserver()
+        appserverObject = copy(appserver())
         appserverObject.cdir = AppArquivo.name
 
         Config = ConfigParser()
@@ -175,12 +218,18 @@ class scanStruct():
                             
                 if(properties.upper() in self.appserverKeys ):
 
+                    boolAppserver = True
+
+                    if(booleanSection):
+                        appserverObject.cContent += 'Seção: ' + section + ' \n\t ' 
+                        booleanSection = False
+
                     if(properties.upper() == 'SOURCEPATH'):
 
                         rpoDir = Path(Config[section][properties])
                         
                         try:
-                            rpo =rpoDir/self.cNameRPO
+                            rpo =rpoDir/self.cNameRPO.upper()
                             open(rpo)
                         except:
                             rpo=None
@@ -199,7 +248,7 @@ class scanStruct():
                         
                         appserverObject.listRpo.append(ArqRPO)        
                     else:
-                        appserverObject.cContent += 'Seção: ' + section + ' \n\t ' + properties + ':'+Config[section][properties] + ' \n '
+                        appserverObject.cContent += ' \n\t ' + properties + ':'+Config[section][properties] + ' \n '
 
                 if (section.upper() == 'SERVICE'):
 
@@ -223,5 +272,11 @@ class scanStruct():
 
                         appserverObject.cport = Config[section][properties]
 
-        self.__appservers.append(appserverObject)
+            booleanSection = True
+
+
+        if(boolAppserver):
+
+            self.__appservers.append(appserverObject)
+
         Config = None

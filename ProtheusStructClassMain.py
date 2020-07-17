@@ -5,11 +5,13 @@ from tkinter import Tk
 from tkinter import X,Y,BOTH
 from childrenClasses.logController import logController
 from childrenClasses.HomeScreen import HomeScreen
+from childrenClasses.stylesBackGround import BackgroundsStyle
 
 class ProtheusStruct(Tk):
 
     log =  logController
     homeScreen = HomeScreen
+    stylesBackGround = BackgroundsStyle
 
     def ConfigAppComponents(self):
 
@@ -24,11 +26,15 @@ class ProtheusStruct(Tk):
         self.log = logController()
         self.log.clearLog()
 
+        self.stylesBackGround = BackgroundsStyle(self)
+
         self.configHomeScreen()
     
     def configHomeScreen(self):
 
-        self.homeScreen = HomeScreen(self)
+        self.stylesBackGround.CreateStyleBackgroundGray()
+        
+        self.homeScreen = HomeScreen(self,style="backGroundGray")
         self.homeScreen.pack(fill=BOTH,padx=40,pady=40,expand=True)
 
     def resource_path(self,relative_path):

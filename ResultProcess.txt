@@ -1,0 +1,168 @@
+######################################
+######################################
+### Para a Pasta: C:/TOTVS12/Protheus
+### Foram encontrados: 3 AppServers
+### Foram encontrados: 1 Smartclients
+######################################
+######################################
+
+##################################################################
+##################    Appservers Encontrados    ##################
+##################################################################
+######################
+# Appserver 1
+######################
+Local: C:\TOTVS12\Protheus\Protheus\bin\appserver\appserver.ini
+Porta: 1240
+Existe um Serviço instalado com o Nome: TOTVS | Appserver 12 - 1240
+Id do Serviço: TOTVS-Appserver12
+######################
+### Conteúdo do ini ##
+######################
+Seção: V12_25 
+	  
+	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+ Seção: WORFKFLOW 
+	  
+	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+ Seção: DBAccess 
+	  
+	 server:127.0.0.1 
+  
+	 port:7890 
+  
+	 alias:V12_25 
+ Seção: TCP 
+	  
+	 port:1240 
+ Seção: LICENSECLIENT 
+	  
+	 server:LOCALHOST 
+  
+	 port:5555 
+ Seção: HTTP 
+	  
+	 port:9191 
+ Seção: WEBAPP 
+	  
+	 port:8080 
+ 
+######################
+######################
+###  Lista de RPOs  ##
+######################
+RPO # 1
+Local: C:\TOTVS12\Protheus\protheus\apo
+Ultima Alteração: 2020-07-03 14:01:24.330088
+Seção do Ini: V12_25
+##################################################################
+RPO # 2
+Local: C:\TOTVS12\Protheus\protheus\apo
+Ultima Alteração: 2020-07-03 14:01:24.330088
+Seção do Ini: WORFKFLOW
+##################################################################
+##################################################################
+######################
+# Appserver 2
+######################
+Local: C:\TOTVS12\Protheus\Protheus\bin\appserver_ws\appserver.ini
+Porta: 1241
+Existe um Serviço instalado com o Nome: TOTVS | Appserver WS - 1241
+Id do Serviço: TOTVS-Appserver12_WS
+######################
+### Conteúdo do ini ##
+######################
+Seção: V12_25_WS 
+	  
+	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+ Seção: DBAccess 
+	  
+	 server:127.0.0.1 
+  
+	 port:7890 
+  
+	 alias:V12_25 
+ Seção: TCP 
+	  
+	 port:1241 
+ Seção: LICENSECLIENT 
+	  
+	 server:LOCALHOST 
+  
+	 port:5555 
+ Seção: http 
+	  
+	 port:8085 
+ 
+######################
+######################
+###  Lista de RPOs  ##
+######################
+RPO # 1
+Local: C:\TOTVS12\Protheus\protheus\apo_ws
+Ultima Alteração: 2020-02-14 17:10:47.011561
+Seção do Ini: V12_25_WS
+##################################################################
+##################################################################
+######################
+# Appserver 3
+######################
+Local: C:\TOTVS12\Protheus\Protheus\bin\appserver_ws_rest\appserver.ini
+Porta: 1242
+Existe um Serviço instalado com o Nome: TOTVS | Appserver WS REST - 1242
+Id do Serviço: TOTVS-Appserver12_WS_REST
+######################
+### Conteúdo do ini ##
+######################
+Seção: V12_25_WS_REST 
+	  
+	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+ Seção: DBAccess 
+	  
+	 server:127.0.0.1 
+  
+	 port:7890 
+  
+	 alias:V12_25 
+ Seção: TCP 
+	  
+	 port:1242 
+ Seção: LICENSECLIENT 
+	  
+	 server:LOCALHOST 
+  
+	 port:5555 
+ Seção: HTTPREST 
+	  
+	 port:8080 
+ 
+######################
+######################
+###  Lista de RPOs  ##
+######################
+RPO # 1
+Local: C:\TOTVS12\Protheus\protheus\apo_ws_rest
+Ultima Alteração: 2020-03-16 15:12:23.526558
+Seção do Ini: V12_25_WS_REST
+##################################################################
+##################################################################
+##################################################################
+#################    Smartclients Encontrados    #################
+##################################################################
+######################
+# Smartclient 1
+######################
+Local: C:\TOTVS12\Protheus\Protheus\bin\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config
+	 envserver:V12_25 
+ Seção: config
+	 browserenabled:0 
+ Seção: tcp
+	 server:localhost 
+ Seção: tcp
+	 port:1240 
+ 
+######################
