@@ -33,3 +33,9 @@ O funcionamento dele consiste em informar a pasta aonde será analisado e o prog
 
 ![image](https://user-images.githubusercontent.com/45453977/87817212-f3adc280-c83e-11ea-8765-dcf97d09d7d4.png)
 
+# Protheus Struct Visual Interface:
+
+***Em desenvolvimento***
+
+![dormrm](https://user-images.githubusercontent.com/45453977/87856311-b0ae2680-c8f4-11ea-9b02-01830a710976.gif)
+
