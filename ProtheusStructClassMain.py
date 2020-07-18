@@ -3,6 +3,7 @@ import sys
 
 from tkinter import Tk
 from tkinter import X,Y,BOTH
+from tkinter.ttk import Frame
 from childrenClasses.logController import logController
 from childrenClasses.HomeScreen import HomeScreen
 from childrenClasses.stylesBackGround import BackgroundsStyle
@@ -35,7 +36,8 @@ class ProtheusStruct(Tk):
         self.stylesBackGround.CreateStyleBackgroundGray()
         
         self.homeScreen = HomeScreen(self,style="backGroundGray")
-        self.homeScreen.pack(fill=BOTH,padx=40,pady=40,expand=True)
+        self.homeScreen.pack(fill=BOTH,padx=70,pady=70,expand=True)
+        self.homeScreen.ConfigAppComponents()
 
     def resource_path(self,relative_path):
         try:
