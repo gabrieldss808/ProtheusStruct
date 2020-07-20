@@ -10,6 +10,7 @@ from tkinter import filedialog
 from tkinter import X,LEFT,RIGHT,BOTH
 from childrenClasses.imageHome import imageHome
 from childrenClasses.FolderHomeFrame import FolderHomeFrame
+from childrenClasses.stylesBackGround import BackgroundsStyle
 
 class HomeScreen(Frame):
 
@@ -45,7 +46,6 @@ class HomeScreen(Frame):
         imgBtDir = PhotoImage(file=self.resource_path("dirIcon.png"))
 
         self.btSearchLocal = Button(self.frameDir)
-        self.btSearchLocal["width"] = 7
         self.btSearchLocal["command"] = self.getPath
         self.btSearchLocal["font"] = ("Roboto Black","12")
         self.btSearchLocal["text"] = "Folder"
@@ -55,13 +55,13 @@ class HomeScreen(Frame):
         self.btSearchLocal.pack(side=RIGHT,fill=BOTH)
 
         self.btProcess = Button(self)
-        self.btProcess["bg"] = "#34A853"
-        self.btProcess["relief"] = "flat" 
-        self.btProcess["width"] = 200
+        self.btProcess["command"] = self.process        
         self.btProcess["font"] = ("Roboto","25")
         self.btProcess["text"] ="Process >"
         self.btProcess["fg"] = "white"
-        self.btProcess.pack(padx=40,pady=25)
+        self.btProcess["bg"] = "#34A853"
+        self.btProcess["relief"] = "flat" 
+        self.btProcess.pack(fill=X,padx=40,pady=25)
 
     def resource_path(self,relative_path):
         try:
@@ -85,5 +85,13 @@ class HomeScreen(Frame):
 
         self.lbDirLocal["wraplength"] = event.width - 15
 
+    def process(self):
 
+        if (self.DirScanMain != ""):
+
+            self.master.process(self.DirScanMain)
+            self.lbDirLocal["text"] = "Select Folder >"
+        else:
+
+            self.lbDirLocal["text"] = "Select a folder to continue >"
 

@@ -1,16 +1,54 @@
-######################################
-######################################
-### Para a Pasta: C:/TOTVS12/Protheus
-### Foram encontrados: 3 AppServers
-### Foram encontrados: 1 Smartclients
-######################################
-######################################
+#############################
+#############################
+### Para a Pasta: C:/TOTVS12
+### Foram encontrados: 4 AppServers
+### Foram encontrados: 3 Smartclients
+#############################
+#############################
 
 ##################################################################
 ##################    Appservers Encontrados    ##################
 ##################################################################
 ######################
 # Appserver 1
+######################
+Local: C:\TOTVS12\License\bin\appserver\appserver.ini
+Porta: 2234
+Existe um Serviço instalado com o Nome: TOTVS | License Server Virtual
+Id do Serviço: licenseVirtual
+######################
+### Conteúdo do ini ##
+######################
+Seção: ENVIRONMENT 
+	  
+	 rootpath:C:\TOTVS12\License\data\ 
+ Seção: TCP 
+	  
+	 port:2234 
+ Seção: LICENSESERVER 
+	  
+	 port:5555 
+ Seção: LICENSECLIENT 
+	  
+	 server:LOCALHOST 
+  
+	 port:5555 
+ Seção: WEBAPP 
+	  
+	 port:8020 
+ 
+######################
+######################
+###  Lista de RPOs  ##
+######################
+RPO # 1
+Local: C:\TOTVS12\License\data\apo
+Ultima Alteração: 2019-08-30 17:49:17
+Seção do Ini: ENVIRONMENT
+##################################################################
+##################################################################
+######################
+# Appserver 2
 ######################
 Local: C:\TOTVS12\Protheus\Protheus\bin\appserver\appserver.ini
 Porta: 1240
@@ -63,7 +101,7 @@ Seção do Ini: WORFKFLOW
 ##################################################################
 ##################################################################
 ######################
-# Appserver 2
+# Appserver 3
 ######################
 Local: C:\TOTVS12\Protheus\Protheus\bin\appserver_ws\appserver.ini
 Porta: 1241
@@ -105,7 +143,7 @@ Seção do Ini: V12_25_WS
 ##################################################################
 ##################################################################
 ######################
-# Appserver 3
+# Appserver 4
 ######################
 Local: C:\TOTVS12\Protheus\Protheus\bin\appserver_ws_rest\appserver.ini
 Porta: 1242
@@ -152,6 +190,21 @@ Seção do Ini: V12_25_WS_REST
 ######################
 # Smartclient 1
 ######################
+Local: C:\TOTVS12\License\bin\monitor\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config
+	 envserver:ENVIRONMENT 
+ Seção: tcp
+	 server:localhost 
+ Seção: tcp
+	 port:2234 
+ 
+######################
+######################
+# Smartclient 2
+######################
 Local: C:\TOTVS12\Protheus\Protheus\bin\smartclient\smartclient.ini
 ######################
 ### Conteúdo do ini ##
@@ -164,5 +217,20 @@ Seção: config
 	 server:localhost 
  Seção: tcp
 	 port:1240 
+ 
+######################
+######################
+# Smartclient 3
+######################
+Local: C:\TOTVS12\TSS\TSS_12_25\bin\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config
+	 envserver:SPED 
+ Seção: tcp
+	 server:localhost 
+ Seção: tcp
+	 port:5060 
  
 ######################

@@ -6,13 +6,18 @@ from tkinter import X,Y,BOTH
 from tkinter.ttk import Frame
 from childrenClasses.logController import logController
 from childrenClasses.HomeScreen import HomeScreen
+from childrenClasses.processScreen import ProcessScreen
 from childrenClasses.stylesBackGround import BackgroundsStyle
 
 class ProtheusStruct(Tk):
 
     log =  logController
     homeScreen = HomeScreen
+    processScreen = ProcessScreen
     stylesBackGround = BackgroundsStyle
+    DirScanMain = ""
+    appservers = list()
+    smartclients = list()
 
     def ConfigAppComponents(self):
 
@@ -30,6 +35,12 @@ class ProtheusStruct(Tk):
         self.stylesBackGround = BackgroundsStyle(self)
 
         self.configHomeScreen()
+
+        self.stylesBackGround.CreateStyleBackgroundGrayProcess()
+
+        self.processScreen = ProcessScreen(self,style="backGroundGrayPro")
+        self.processScreen.configureScreen()
+        
     
     def configHomeScreen(self):
 
@@ -61,3 +72,22 @@ class ProtheusStruct(Tk):
         self.geometry("%dx%d+%d+%d" % (largura, altura, posx, posy))
         self.minsize(650,600)
 
+    def process(self,DirScanMain=''):
+
+        self.DirScanMain = DirScanMain
+
+        self.homeScreen.pack_forget()
+
+        self.processScreen.pack(fill=BOTH,padx=100,pady=190,expand=True)
+        
+        self.processScreen.executeProcess(self.DirScanMain)
+
+    def returnToHome(self):
+
+        self.processScreen.pack_forget()
+
+        self.homeScreen.pack(fill=BOTH,padx=70,pady=70,expand=True)
+
+    def gotoResult(self):
+
+        pass

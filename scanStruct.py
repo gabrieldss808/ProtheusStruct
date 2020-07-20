@@ -16,6 +16,8 @@ class scanStruct():
     __appservers = list()
     __smartclients = list()
     __Struct = Path
+    __executeSmart = bool
+    __executeAppServer = bool
     appserverKeys = list()
     smartclientKeys = list()
     appserverNameArq = ""
@@ -45,11 +47,15 @@ class scanStruct():
 
     def addAppServerKey(self,appServerKey=''):
 
-        self.appserverKeys.add(appServerKey.upper())
+        if(appServerKey != ''):
+
+            self.appserverKeys.add(appServerKey.upper())
 
     def addSmartClientKey(self,smartClientKey=''):
 
-        self.smartclientKeys.add(smartClientKey.upper())
+        if(smartClientKey != ''):
+
+            self.smartclientKeys.add(smartClientKey.upper())
 
     def execute(self):
 
@@ -67,8 +73,7 @@ class scanStruct():
 
             self.__log.consoleLogAdd('Procurando Appservers...')
 
-            taskSearch = Thread(target=self.__searchAppservers,args=[])
-            taskSearch.start()
+            self.__searchAppservers()
         except Exception as appserverError:
             
             StringErroAp+= '###########################################################\n'
@@ -81,8 +86,7 @@ class scanStruct():
 
             self.__log.consoleLogAdd('Procurando Smartclients...')
 
-            taskSearch = Thread(target=self.__searchSmartclient,args=[])
-            taskSearch.start()
+            self.__searchSmartclient()
         except Exception as smartclientError:
 
             StringErroSmar+= '###########################################################\n'
@@ -96,9 +100,11 @@ class scanStruct():
 
     def FoundSomething(self):
 
-        if(self.getSmartclients() == None and self.getApperservers() == None):
+        if(self.getSmartclients() == {} and self.getApperservers() == {}):
+
             self.wasFoundSomething = False
         else:
+            
             self.wasFoundSomething = True
         
     def getApperservers(self):

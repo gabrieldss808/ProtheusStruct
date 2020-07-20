@@ -17,3 +17,9 @@ class BackgroundsStyle(Style):
         self.element_create("backGroundGrayElement","image","backGroundGrayImage",border=16,sticky="nsew")
 
         self.layout("backGroundGray",[("backGroundGrayElement",{"sticky": "nsew","expand":True})])
+
+    def CreateStyleBackgroundGrayProcess(self):
+
+        self.element_create("backGroundGrayElementPro","image","backGroundGrayImage",border=16,sticky="nsew")
+
+        self.layout("backGroundGrayPro",[("backGroundGrayElementPro",{"sticky": "nsew","expand":True})])
