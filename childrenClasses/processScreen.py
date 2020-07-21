@@ -40,7 +40,7 @@ class ProcessScreen(Frame):
         self.TextProgressProcess["font"] = ("Roboto Black","20")
         self.TextProgressProcess["fg"] = "white"
         self.TextProgressProcess["text"] = "Procurando arquivos da estrutura Protheus..."
-        self.TextProgressProcess.pack(padx=10,pady=15)
+        self.TextProgressProcess.pack(padx=10,pady=15,expand=True)
 
 
         self.btProcessFinish = Button(self)
@@ -89,10 +89,16 @@ class ProcessScreen(Frame):
             if (len(self.scanStructObject.getApperservers()) > 0):
 
                 self.master.appservers = self.scanStructObject.getApperservers()
+            else:
+
+                self.master.appservers = {}
             if (len(self.scanStructObject.getSmartclients()) > 0):
 
                 self.master.smartclients = self.scanStructObject.getSmartclients()
-            
+            else:
+                
+                self.master.smartclients = {}
+                
             self.btProcessFinish["bg"] = "#34A853"
             self.btProcessFinish["text"] = "Proximo >"
             self.TextProgressProcess["text"] = "Pronto, agora é só ver os resultados!! :)"
@@ -123,6 +129,14 @@ class ProcessScreen(Frame):
         else:
             
             self.master.returnToHome()
+
+    def ClearComponent(self):
+
+        self.btProcessFinish.pack_forget()
+
+        self.TextProgressProcess["text"] = "Procurando arquivos da estrutura Protheus..."
+
+        self.ClearProgressBar()
 
     def ConfigScan(self):
 

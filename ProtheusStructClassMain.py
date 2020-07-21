@@ -7,6 +7,7 @@ from tkinter.ttk import Frame
 from childrenClasses.logController import logController
 from childrenClasses.HomeScreen import HomeScreen
 from childrenClasses.processScreen import ProcessScreen
+from childrenClasses.resultScreen import ResultScreen
 from childrenClasses.stylesBackGround import BackgroundsStyle
 
 class ProtheusStruct(Tk):
@@ -14,6 +15,7 @@ class ProtheusStruct(Tk):
     log =  logController
     homeScreen = HomeScreen
     processScreen = ProcessScreen
+    resultScreen = ResultScreen
     stylesBackGround = BackgroundsStyle
     DirScanMain = ""
     appservers = list()
@@ -40,6 +42,9 @@ class ProtheusStruct(Tk):
 
         self.processScreen = ProcessScreen(self,style="backGroundGrayPro")
         self.processScreen.configureScreen()
+
+        self.resultScreen = ResultScreen(self)
+        self.resultScreen.configScreen()
         
     
     def configHomeScreen(self):
@@ -85,9 +90,22 @@ class ProtheusStruct(Tk):
     def returnToHome(self):
 
         self.processScreen.pack_forget()
+        self.processScreen.ClearComponent()
 
         self.homeScreen.pack(fill=BOTH,padx=70,pady=70,expand=True)
 
     def gotoResult(self):
 
-        pass
+        self.processScreen.pack_forget()
+        self.processScreen.ClearComponent()
+
+        self.resultScreen.pack(fill=BOTH,expand=True)
+        self.resultScreen.clear()
+        self.resultScreen.ShowInformationResult()
+
+    def goToHome(self):
+
+        self.resultScreen.pack_forget()
+
+        self.homeScreen.pack(fill=BOTH,padx=70,pady=70,expand=True)
+        

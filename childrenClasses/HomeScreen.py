@@ -39,7 +39,7 @@ class HomeScreen(Frame):
         self.lbDirLocal = Label(self.frameDir)
         self.lbDirLocal["font"] = "Roboto 20"
         self.lbDirLocal["fg"] = "white"
-        self.lbDirLocal["text"] = "Select Folder >"
+        self.lbDirLocal["text"] = "Selecione uma Pasta >"
         self.lbDirLocal["bg"] = "#616161"
         self.lbDirLocal.pack(side=LEFT,fill=X)
 
@@ -48,7 +48,7 @@ class HomeScreen(Frame):
         self.btSearchLocal = Button(self.frameDir)
         self.btSearchLocal["command"] = self.getPath
         self.btSearchLocal["font"] = ("Roboto Black","12")
-        self.btSearchLocal["text"] = "Folder"
+        self.btSearchLocal["text"] = "Pasta"
         self.btSearchLocal["fg"] = "white"
         self.btSearchLocal["bg"] = "#4285F4"
         self.btSearchLocal["relief"] = "flat"
@@ -57,7 +57,7 @@ class HomeScreen(Frame):
         self.btProcess = Button(self)
         self.btProcess["command"] = self.process        
         self.btProcess["font"] = ("Roboto","25")
-        self.btProcess["text"] ="Process >"
+        self.btProcess["text"] ="Processar >"
         self.btProcess["fg"] = "white"
         self.btProcess["bg"] = "#34A853"
         self.btProcess["relief"] = "flat" 
@@ -90,8 +90,8 @@ class HomeScreen(Frame):
         if (self.DirScanMain != ""):
 
             self.master.process(self.DirScanMain)
-            self.lbDirLocal["text"] = "Select Folder >"
+            self.lbDirLocal["text"] = "Selecione uma Pasta >"
         else:
 
-            self.lbDirLocal["text"] = "Select a folder to continue >"
+            self.lbDirLocal["text"] = "Selecione uma pasta para continuar >"
 
