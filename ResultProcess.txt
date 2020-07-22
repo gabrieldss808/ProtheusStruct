@@ -1,10 +1,10 @@
-#############################
-#############################
-### Para a Pasta: C:/TOTVS12
-### Foram encontrados: 4 AppServers
-### Foram encontrados: 3 Smartclients
-#############################
-#############################
+######################
+######################
+### Para a Pasta: C:/
+### Foram encontrados: 6 AppServers
+### Foram encontrados: 34 Smartclients
+######################
+######################
 
 ##################################################################
 ##################    Appservers Encontrados    ##################
@@ -21,21 +21,23 @@ Id do Serviço: licenseVirtual
 ######################
 Seção: ENVIRONMENT 
 	  
-	 rootpath:C:\TOTVS12\License\data\ 
+	 rootpath: C:\TOTVS12\License\data\ 
+  
+	 rpoversion: 120 
  Seção: TCP 
 	  
-	 port:2234 
+	 port: 2234 
  Seção: LICENSESERVER 
 	  
-	 port:5555 
+	 port: 5555 
  Seção: LICENSECLIENT 
 	  
-	 server:LOCALHOST 
+	 server: LOCALHOST 
   
-	 port:5555 
+	 port: 5555 
  Seção: WEBAPP 
 	  
-	 port:8020 
+	 port: 8020 
  
 ######################
 ######################
@@ -43,7 +45,7 @@ Seção: ENVIRONMENT
 ######################
 RPO # 1
 Local: C:\TOTVS12\License\data\apo
-Ultima Alteração: 2019-08-30 17:49:17
+Ultima Alteração: 30-08-2019 17:49:17
 Seção do Ini: ENVIRONMENT
 ##################################################################
 ##################################################################
@@ -59,31 +61,35 @@ Id do Serviço: TOTVS-Appserver12
 ######################
 Seção: V12_25 
 	  
-	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+	 rootpath: C:\TOTVS12\Protheus\protheus_data 
+  
+	 rpoversion: 120 
  Seção: WORFKFLOW 
 	  
-	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+	 rootpath: C:\TOTVS12\Protheus\protheus_data 
+  
+	 rpoversion: 120 
  Seção: DBAccess 
 	  
-	 server:127.0.0.1 
+	 server: 127.0.0.1 
   
-	 port:7890 
+	 port: 7890 
   
-	 alias:V12_25 
+	 alias: V12_25 
  Seção: TCP 
 	  
-	 port:1240 
+	 port: 1240 
  Seção: LICENSECLIENT 
 	  
-	 server:LOCALHOST 
+	 server: LOCALHOST 
   
-	 port:5555 
+	 port: 5555 
  Seção: HTTP 
 	  
-	 port:9191 
+	 port: 9191 
  Seção: WEBAPP 
 	  
-	 port:8080 
+	 port: 8080 
  
 ######################
 ######################
@@ -91,12 +97,12 @@ Seção: V12_25
 ######################
 RPO # 1
 Local: C:\TOTVS12\Protheus\protheus\apo
-Ultima Alteração: 2020-07-03 14:01:24.330088
+Ultima Alteração: 03-07-2020 14:01:24
 Seção do Ini: V12_25
 ##################################################################
 RPO # 2
 Local: C:\TOTVS12\Protheus\protheus\apo
-Ultima Alteração: 2020-07-03 14:01:24.330088
+Ultima Alteração: 03-07-2020 14:01:24
 Seção do Ini: WORFKFLOW
 ##################################################################
 ##################################################################
@@ -112,25 +118,27 @@ Id do Serviço: TOTVS-Appserver12_WS
 ######################
 Seção: V12_25_WS 
 	  
-	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+	 rootpath: C:\TOTVS12\Protheus\protheus_data 
+  
+	 rpoversion: 120 
  Seção: DBAccess 
 	  
-	 server:127.0.0.1 
+	 server: 127.0.0.1 
   
-	 port:7890 
+	 port: 7890 
   
-	 alias:V12_25 
+	 alias: V12_25 
  Seção: TCP 
 	  
-	 port:1241 
+	 port: 1241 
  Seção: LICENSECLIENT 
 	  
-	 server:LOCALHOST 
+	 server: LOCALHOST 
   
-	 port:5555 
+	 port: 5555 
  Seção: http 
 	  
-	 port:8085 
+	 port: 8085 
  
 ######################
 ######################
@@ -138,7 +146,7 @@ Seção: V12_25_WS
 ######################
 RPO # 1
 Local: C:\TOTVS12\Protheus\protheus\apo_ws
-Ultima Alteração: 2020-02-14 17:10:47.011561
+Ultima Alteração: 14-02-2020 17:10:47
 Seção do Ini: V12_25_WS
 ##################################################################
 ##################################################################
@@ -154,25 +162,27 @@ Id do Serviço: TOTVS-Appserver12_WS_REST
 ######################
 Seção: V12_25_WS_REST 
 	  
-	 rootpath:C:\TOTVS12\Protheus\protheus_data 
+	 rootpath: C:\TOTVS12\Protheus\protheus_data 
+  
+	 rpoversion: 120 
  Seção: DBAccess 
 	  
-	 server:127.0.0.1 
+	 server: 127.0.0.1 
   
-	 port:7890 
+	 port: 7890 
   
-	 alias:V12_25 
+	 alias: V12_25 
  Seção: TCP 
 	  
-	 port:1242 
+	 port: 1242 
  Seção: LICENSECLIENT 
 	  
-	 server:LOCALHOST 
+	 server: LOCALHOST 
   
-	 port:5555 
+	 port: 5555 
  Seção: HTTPREST 
 	  
-	 port:8080 
+	 port: 8080 
  
 ######################
 ######################
@@ -180,8 +190,72 @@ Seção: V12_25_WS_REST
 ######################
 RPO # 1
 Local: C:\TOTVS12\Protheus\protheus\apo_ws_rest
-Ultima Alteração: 2020-03-16 15:12:23.526558
+Ultima Alteração: 16-03-2020 15:12:23
 Seção do Ini: V12_25_WS_REST
+##################################################################
+##################################################################
+######################
+# Appserver 5
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Gabriel\gabriel.ssouza\Documentos Totvs\Backup Protheus\Protheus\Bin\appserver_x32\appserver.ini
+Porta: 1240
+Existe um Serviço instalado com o Nome: TOTVS | Appserver 12
+Id do Serviço: TOTVS-Appserver12
+######################
+### Conteúdo do ini ##
+######################
+Seção: Totvs_v12 
+	  
+	 rootpath: C:\Totvs_v12\Protheus_data12 
+  
+	 rpoversion: 120 
+ Seção: DBAccess 
+	  
+	 server: 127.0.0.1 
+  
+	 port: 7890 
+  
+	 alias: V12_7 
+ Seção: TCP 
+	  
+	 port: 1240 
+ Seção: HTTP 
+	  
+	 port: 8079 
+ 
+######################
+######################
+###  Lista de RPOs  ##
+######################
+RPO # 1
+Local: C:\Totvs_v12\Protheus\Apo
+Seção do Ini: Totvs_v12
+##################################################################
+##################################################################
+######################
+# Appserver 6
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Fontes Protheus\V12.1.17\Fontes\Automacao Comercial\TOTVS PDV\Instalador\files\appserver.ini
+Porta: ${SERVER_PORT}
+######################
+### Conteúdo do ini ##
+######################
+Seção: ${SERVER_ENV} 
+	  
+	 rootpath: $INSTALL_PATH\Protheus_data 
+  
+	 rpoversion: ${RPO_VERSION} 
+ Seção: TCP 
+	  
+	 port: ${SERVER_PORT} 
+ 
+######################
+######################
+###  Lista de RPOs  ##
+######################
+RPO # 1
+Local: $INSTALL_PATH\Protheus\apo
+Seção do Ini: ${SERVER_ENV}
 ##################################################################
 ##################################################################
 ##################################################################
@@ -190,47 +264,1237 @@ Seção do Ini: V12_25_WS_REST
 ######################
 # Smartclient 1
 ######################
-Local: C:\TOTVS12\License\bin\monitor\smartclient.ini
+Local: C:\smartclient_usuario\smartclient.ini
 ######################
 ### Conteúdo do ini ##
 ######################
-Seção: config
-	 envserver:ENVIRONMENT 
- Seção: tcp
-	 server:localhost 
- Seção: tcp
-	 port:2234 
+Seção: config 
+	  
+	 lastmainprog: SIGAMDI 
+  
+	 envserver: ENVTOTVSIP 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: erp.totvsip.com.br 
+  
+	 port: 5011 
  
 ######################
 ######################
 # Smartclient 2
 ######################
-Local: C:\TOTVS12\Protheus\Protheus\bin\smartclient\smartclient.ini
+Local: C:\TOTVS12\License\bin\monitor\smartclient.ini
 ######################
 ### Conteúdo do ini ##
 ######################
-Seção: config
-	 envserver:V12_25 
- Seção: config
-	 browserenabled:0 
- Seção: tcp
-	 server:localhost 
- Seção: tcp
-	 port:1240 
+Seção: config 
+	  
+	 lastmainprog: TOTVSLSMONITOR 
+  
+	 envserver: ENVIRONMENT 
+ Seção: tcp 
+	  
+	 server: localhost 
+  
+	 port: 2234 
  
 ######################
 ######################
 # Smartclient 3
 ######################
+Local: C:\TOTVS12\Protheus\Protheus\bin\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAMDI 
+  
+	 envserver: V12_25 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: localhost 
+  
+	 port: 1240 
+ 
+######################
+######################
+# Smartclient 4
+######################
 Local: C:\TOTVS12\TSS\TSS_12_25\bin\smartclient\smartclient.ini
 ######################
 ### Conteúdo do ini ##
 ######################
-Seção: config
-	 envserver:SPED 
- Seção: tcp
-	 server:localhost 
- Seção: tcp
-	 port:5060 
+Seção: config 
+	  
+	 lastmainprog: TSSINTERFACE,TSSMONITOR,TSSPORTAL,TSSMANAGER,APSDU 
+  
+	 envserver: SPED 
+ Seção: tcp 
+	  
+	 server: localhost 
+  
+	 port: 5060 
+ 
+######################
+######################
+# Smartclient 5
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Gabriel\gabriel.ssouza\Documentos Totvs\Backup Protheus\Protheus\Bin\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAMDI 
+  
+	 envserver: Totvs_v12 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: 127.0.0.1 
+  
+	 port: 1240 
+ 
+######################
+######################
+# Smartclient 6
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Gabriel\Totvs_v12\Protheus\Bin\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAMDI 
+  
+	 envserver: Totvs_v12 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: 127.0.0.1 
+  
+	 port: 1240 
+ 
+######################
+######################
+# Smartclient 7
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\TDS\Workspace\Protheus_ZinhoAlimentos\trunk\Documentos\03-Arquivos Inis\Producao\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAMDI 
+  
+	 envserver: PRODUCAO 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: 192.168.20.2 
+  
+	 port: 1240 
+ Seção: slave1 
+	  
+	 server: 192.168.20.2 
+  
+	 port: 1241 
+ Seção: slave2 
+	  
+	 server: 192.168.20.2 
+  
+	 port: 1242 
+ Seção: slave3 
+	  
+	 server: 192.168.20.2 
+  
+	 port: 1243 
+ Seção: compila 
+	  
+	 server: 192.168.20.2 
+  
+	 port: 1260 
+ Seção: workflow 
+	  
+	 server: 192.168.20.2 
+  
+	 port: 1263 
+ 
+######################
+######################
+# Smartclient 8
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Alcar\Produção\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: PROTPROD 
+ Seção: tcp 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1240 
+ Seção: BAL1 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1241 
+ Seção: BAL2 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1242 
+ Seção: BAL3 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1243 
+ Seção: BAL4 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1244 
+ Seção: BAL5 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1245 
+ Seção: LUCIMARA 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1260 
+ Seção: FATNFE 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1250 
+ Seção: ACD 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1259 
+ 
+######################
+######################
+# Smartclient 9
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Alcar\Teste\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: PROTTST 
+ Seção: tcp 
+	  
+	 server: 10.0.0.33 
+  
+	 port: 1233 
+ 
+######################
+######################
+# Smartclient 10
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Argus\Smartcliente Prod\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAADV 
+  
+	 envserver: CNZRKB_PROD 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: argusprodutos105180.protheus.cloudtotvs.com.br 
+  
+	 port: 4000 
+ Seção: monitor 
+	  
+	 server: argusprodutos105180.protheus.cloudtotvs.com.br 
+  
+	 port: 6900 
+ Seção: exclusivo 
+	  
+	 server: argusprodutos105180.protheus.cloudtotvs.com.br 
+  
+	 port: 6700 
+ Seção: wf 
+	  
+	 server: argusprodutos105180.protheus.cloudtotvs.com.br 
+  
+	 port: 6800 
+ Seção: mac 
+	  
+	 server: argusprodutos105180.protheus.cloudtotvs.com.br 
+  
+	 port: 6000 
+ 
+######################
+######################
+# Smartclient 11
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Cinergis\Produção\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAADV 
+  
+	 envserver: FI40XQ,FI40XQ_DESENV, FI40XQ_asp 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: cinergis.prd.protheus.totvscloud.com.br 
+  
+	 port: 7027 
+ Seção: tcp2 
+	  
+	 server: localhost 
+  
+	 port: 7237 
+ Seção: broker 
+	  
+	 server: cinergis.prd.protheus.totvscloud.com.br 
+  
+	 port: 7162 
+ Seção: B1 
+	  
+	 server: localhost 
+  
+	 port: 7237 
+ Seção: wf 
+	  
+	 server: localhost 
+  
+	 port: 9576 
+ Seção: b2 
+	  
+	 server: localhost 
+  
+	 port: 7237 
+ 
+######################
+######################
+# Smartclient 12
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Cinergis\Teste\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAADV 
+  
+	 envserver: FI40XQ_TESTE, FI40XQ_TESTE_ASP 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: 187.94.63.180 
+  
+	 port: 12103 
+ Seção: tcp2 
+	  
+	 server: localhost 
+  
+	 port: 12103 
+ Seção: broker 
+	  
+	 server: 187.94.63.180 
+  
+	 port: 12166 
+ 
+######################
+######################
+# Smartclient 13
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Eurofins\Protheus\smartclient_64\smartclient_64\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAADV 
+  
+	 envserver: producao 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: 10.55.1.80 
+  
+	 port: 1240 
+ Seção: tcp1 
+	  
+	 server: 10.55.1.80 
+  
+	 port: 1241 
+ Seção: tcp2 
+	  
+	 server: 10.55.1.80 
+  
+	 port: 1242 
+ Seção: tcp3 
+	  
+	 server: 10.55.1.80 
+  
+	 port: 1243 
+ Seção: schedule 
+	  
+	 server: 10.55.1.80 
+  
+	 port: 1250 
+ 
+######################
+######################
+# Smartclient 14
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Evora\Protheus\Protheus - Homologação\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: PROTHEUS_HOMOLOGACAO 
+ Seção: tcp 
+	  
+	 server: 192.168.1.232 
+  
+	 port: 1220 
+ 
+######################
+######################
+# Smartclient 15
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Evora\Protheus\Protheus - Produção\smartclient_64\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: PROTHEUS_PRODUCAO 
+ Seção: tcp 
+	  
+	 server: 192.168.1.232 
+  
+	 port: 1240 
+ Seção: slave1 
+	  
+	 server: 192.168.1.232 
+  
+	 port: 1241 
+ 
+######################
+######################
+# Smartclient 16
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Medilar\Protheus Produção\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAADV 
+  
+	 envserver: cx5u8r_prod 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: medilaremergencias104617.protheus.cloudtotvs.com.br 
+  
+	 port: 4000 
+ Seção: monitor 
+	  
+	 server: medilaremergencias104617.protheus.cloudtotvs.com.br 
+  
+	 port: 6900 
+ Seção: exclusivo 
+	  
+	 server: medilaremergencias104617.protheus.cloudtotvs.com.br 
+  
+	 port: 6700 
+ Seção: wf 
+	  
+	 server: medilaremergencias104617.protheus.cloudtotvs.com.br 
+  
+	 port: 6800 
+ Seção: mac 
+	  
+	 server: medilaremergencias104617.protheus.cloudtotvs.com.br 
+  
+	 port: 6000 
+ 
+######################
+######################
+# Smartclient 17
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Modern\Protheus\Base Produção\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigamdi 
+  
+	 envserver: producao 
+ Seção: tcp 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20000 
+ Seção: WSEAI 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20300 
+ Seção: portal 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20100 
+ Seção: PROMOTE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1240 
+ Seção: PRODUCAODEV 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1241 
+ Seção: WS_INTEGRA 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20601 
+ Seção: SCHEDULE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 21000 
+ Seção: bal1 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20001 
+ Seção: bal3 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20003 
+ Seção: master 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20004 
+ 
+######################
+######################
+# Smartclient 18
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Modern\Protheus\Base Produção\smartclient\bkp_remote.001\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigamdi 
+  
+	 envserver: producao 
+ Seção: tcp 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20000 
+ Seção: WSEAI 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20300 
+ Seção: portal 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20100 
+ Seção: PROMOTE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1240 
+ Seção: PRODUCAODEV 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1241 
+ Seção: WS_INTEGRA 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20601 
+ Seção: SCHEDULE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 21000 
+ 
+######################
+######################
+# Smartclient 19
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Modern\Protheus\Base Produção\smartclient\bkp_remote.002\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigamdi 
+  
+	 envserver: producao 
+ Seção: tcp 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20000 
+ Seção: WSEAI 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20300 
+ Seção: portal 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20100 
+ Seção: PROMOTE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1240 
+ Seção: PRODUCAODEV 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1241 
+ Seção: WS_INTEGRA 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20601 
+ Seção: SCHEDULE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 21000 
+ 
+######################
+######################
+# Smartclient 20
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Modern\Protheus\Base Produção\smartclient\bkp_remote.002\bkp_remote.001\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigamdi 
+  
+	 envserver: producao 
+ Seção: tcp 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20000 
+ Seção: WSEAI 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20300 
+ Seção: portal 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20100 
+ Seção: PROMOTE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1240 
+ Seção: PRODUCAODEV 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 1241 
+ Seção: WS_INTEGRA 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 20601 
+ Seção: SCHEDULE 
+	  
+	 server: 10.200.0.19 
+  
+	 port: 21000 
+ 
+######################
+######################
+# Smartclient 21
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Modern\Protheus\Base TESTE\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigamdi 
+  
+	 envserver: TESTE 
+ Seção: tcp 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21001 
+ Seção: MEURH 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21002 
+ Seção: SCHEDULE 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21200 
+ Seção: teste_wseai 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21300 
+ Seção: PORTALTST 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21003 
+ 
+######################
+######################
+# Smartclient 22
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Modern\Protheus\Base TESTE\smartclient\bkp_remote.001\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigamdi 
+  
+	 envserver: TESTE 
+ Seção: tcp 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21001 
+ Seção: MEURH 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21002 
+ Seção: SCHEDULE 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21200 
+ Seção: teste_wseai 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21300 
+ Seção: PORTALTST 
+	  
+	 server: 10.200.0.9 
+  
+	 port: 21003 
+ 
+######################
+######################
+# Smartclient 23
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Montreal\Protheus\Produção\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAADV 
+  
+	 envserver: cztf20_prod 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: montrelcontroles105114.protheus.cloudtotvs.com.br 
+  
+	 port: 4000 
+ Seção: monitor 
+	  
+	 server: montrelcontroles105114.protheus.cloudtotvs.com.br 
+  
+	 port: 6900 
+ Seção: exclusivo 
+	  
+	 server: montrelcontroles105114.protheus.cloudtotvs.com.br 
+  
+	 port: 6700 
+ Seção: wf 
+	  
+	 server: montrelcontroles105114.protheus.cloudtotvs.com.br 
+  
+	 port: 6800 
+ Seção: mac 
+	  
+	 server: montrelcontroles105114.protheus.cloudtotvs.com.br 
+  
+	 port: 6000 
+ 
+######################
+######################
+# Smartclient 24
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Montreal\Protheus\Teste\smartclient\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAADV 
+  
+	 envserver: cztf20_dev 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 4000 
+ Seção: monitor 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6900 
+ Seção: exclusivo 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6700 
+ Seção: wf 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6800 
+ Seção: mac 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6000 
+ Seção: tds 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6000 
+ Seção: wssoap 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6300 
+ Seção: wsrest 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6400 
+ Seção: portal 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6500 
+ Seção: coletor 
+	  
+	 server: montrelcontroles105283.protheus.cloudtotvs.com.br 
+  
+	 port: 6600 
+ 
+######################
+######################
+# Smartclient 25
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Promafa\smartclient_promafa\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigamdi,sigacfg 
+  
+	 envserver: env 
+ Seção: TCP 
+	  
+	 server: promafaprodutosdeman.protheus.cloudtotvs.com.br 
+  
+	 port: 6000 
+ Seção: MONITOR 
+	  
+	 server: promafaprodutosdeman.protheus.cloudtotvs.com.br 
+  
+	 port: 7000 
+ Seção: broker 
+	  
+	 server: promafaprodutosdeman.protheus.cloudtotvs.com.br 
+  
+	 port: 4000 
+ 
+######################
+######################
+# Smartclient 26
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Sforza\Orion\Grupo Sforza\smartclient aloha\smartclient\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: aloha_prd 
+ Seção: monitor 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 8444 
+ Seção: tcp 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 8440 
+ Seção: slave1 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 8441 
+ Seção: slave2 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 8442 
+ Seção: slave3 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 8443 
+ Seção: slave4 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 8444 
+ Seção: schedule 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 8445 
+ Seção: jobnfe 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 24202 
+ 
+######################
+######################
+# Smartclient 27
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Sforza\Orion\Grupo Sforza\smartclient brs1\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: brs1_prd 
+ Seção: monitor 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9244 
+ Seção: tcp 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9241 
+ Seção: master 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9244 
+ Seção: slave1 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9241 
+ Seção: slave2 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9242 
+ Seção: slave3 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9243 
+ Seção: slave4 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9244 
+ Seção: schedule 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 9245 
+ 
+######################
+######################
+# Smartclient 28
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Sforza\Orion\Grupo Sforza\smartclient mundo verde\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: MUNDO_VERDE 
+ Seção: tcp 
+	  
+	 server: 200.219.217.41 
+  
+	 port: 17240 
+ Seção: slave1 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 17241 
+ Seção: job_02 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 34135 
+ 
+######################
+######################
+# Smartclient 29
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Sforza\Orion\Grupo Sforza\smartclient TBB\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: TBB 
+ Seção: tcp 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 2412 
+ Seção: slave1 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 24121 
+ Seção: slave2 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 24122 
+ Seção: slave3 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 24123 
+ Seção: tbb_job 
+	  
+	 server: 172.19.49.6 
+  
+	 port: 24138 
+ Seção: CUPOM 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 24129 
+ 
+######################
+######################
+# Smartclient 30
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Sforza\Orion\Grupo Sforza\smartclient_Orion\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: ORION_PRD 
+ Seção: tcp 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 6240 
+ Seção: slave1 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 6241 
+ Seção: slave3 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 6243 
+ 
+######################
+######################
+# Smartclient 31
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Empresas\Variaveis Sforza\Orion\Grupo Sforza\smartclient_Pro Sports\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: PROSPORTS_PRD 
+ Seção: tcp 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 7240 
+ Seção: slave1 
+	  
+	 server: protheus.prd.sforza.com.br 
+  
+	 port: 7241 
+ 
+######################
+######################
+# Smartclient 32
+######################
+Local: C:\Users\Gabriel Da Silva\Documents\Totvs\Fontes Protheus\V12.1.17\Fontes\Automacao Comercial\TOTVS PDV\Instalador\files\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: ${SERVER_ENV} 
+ Seção: tcp 
+	  
+	 server: localhost 
+  
+	 port: ${SERVER_PORT} 
+ 
+######################
+######################
+# Smartclient 33
+######################
+Local: C:\Users\Gabriel Da Silva\Downloads\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: SIGAMDI 
+  
+	 envserver: ENVTOTVSIP 
+  
+	 browserenabled: 0 
+ Seção: tcp 
+	  
+	 server: erp.totvsip.com.br 
+  
+	 port: 6000 
+ Seção: tcp_mac 
+	  
+	 server: erp.totvsip.com.br 
+  
+	 port: 5011 
+ 
+######################
+######################
+# Smartclient 34
+######################
+Local: C:\Users\Gabriel Da Silva\Dropbox\SFORZA\SFORZA\smartclient Oficial\smartclient.ini
+######################
+### Conteúdo do ini ##
+######################
+Seção: config 
+	  
+	 lastmainprog: sigaadv 
+  
+	 envserver: TR3ZWS 
+ Seção: tcp 
+	  
+	 server: 187.94.62.85 
+  
+	 port: 2412 
+ Seção: tcp2 
+	  
+	 server: localhost 
+  
+	 port: 2412 
+ Seção: Slave1 
+	  
+	 server: localhost 
+  
+	 port: 24121 
+ Seção: Slave2 
+	  
+	 server: localhost 
+  
+	 port: 24122 
+ Seção: TCP_SCHED 
+	  
+	 server: 187.94.62.85 
+  
+	 port: 24126 
+ Seção: broker 
+	  
+	 server: 187.94.62.85 
+  
+	 port: 22541 
  
 ######################

@@ -22,16 +22,17 @@ class InformationAppServerPop(Tk):
 
         self.Positioninthecenter()
 
-        self.resizable(0,0)
+        self.minsize(500,400)
+
+        self.bind("<Configure>",self.configureLength)
 
         self.interiorContent = PanelInterior(self)
         self.interiorContent.pack(fill=BOTH, expand=True)
 
-        self.lbInfoPresentation = Label(self.interiorContent.interior,justify=LEFT)
+        self.lbInfoPresentation = Label(self.interiorContent.interior)
         self.lbInfoPresentation["bg"] = "#616161"
         self.lbInfoPresentation["font"] = ("Roboto Black","15")
         self.lbInfoPresentation["fg"] = "white"
-        self.lbInfoPresentation["wraplength"] = 400
         self.lbInfoPresentation.pack(fill=X,padx=10,pady=5)
 
         self.contentScreen = Text(self.interiorContent.interior)
@@ -54,7 +55,7 @@ class InformationAppServerPop(Tk):
         if(len(AppserverInput.listRpo)>1):
             cContentText += "Informações dos RPOs: \n\n"
         else:
-            cContentText += "Informação do RPO: \n\n"
+            cContentText += "Informações do RPO: \n\n"
 
         for RPO in AppserverInput.listRpo:
 
@@ -71,12 +72,12 @@ class InformationAppServerPop(Tk):
                 cContentText += "Na seção: " + RPO.cSection + "\n\n"
 
         self.contentScreen.insert(1.0,cContentText)
-        self.contentScreen.config(state='disabled', relief='flat')
+        self.contentScreen.config(state='disabled')
 
     def Positioninthecenter(self):
 
         largura = 500
-        altura = 400
+        altura = 520
 
         largura_tela = self.winfo_screenwidth()
         altura_tela = self.winfo_screenheight()
@@ -86,3 +87,6 @@ class InformationAppServerPop(Tk):
 
         self.geometry("%dx%d+%d+%d" % (largura, altura, posx, posy))
 
+    def configureLength(self,event):
+
+        self.lbInfoPresentation["wraplength"] = event.width - 100

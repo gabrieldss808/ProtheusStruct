@@ -43,8 +43,6 @@ class HomeScreen(Frame):
         self.lbDirLocal["bg"] = "#616161"
         self.lbDirLocal.pack(side=LEFT,fill=X)
 
-        imgBtDir = PhotoImage(file=self.resource_path("dirIcon.png"))
-
         self.btSearchLocal = Button(self.frameDir)
         self.btSearchLocal["command"] = self.getPath
         self.btSearchLocal["font"] = ("Roboto Black","12")
@@ -91,6 +89,7 @@ class HomeScreen(Frame):
 
             self.master.process(self.DirScanMain)
             self.lbDirLocal["text"] = "Selecione uma Pasta >"
+            self.DirScanMain = ""
         else:
 
             self.lbDirLocal["text"] = "Selecione uma pasta para continuar >"

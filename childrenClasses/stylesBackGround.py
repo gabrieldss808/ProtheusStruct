@@ -33,8 +33,8 @@ class BackgroundsStyle(Style):
 
         self.layout("BackGroundGreen",[("BackGroundGreenElement",{"sticky": "nsew","expand":True})])
 
-    def CreateStyleAppserverCard(self,numberOfAppserver=0):
+    def CreateStyleCard(self,numberOfWidget=0):
 
-        self.element_create("backGroundGrayElementApp"+str(numberOfAppserver),"image","backGroundGrayAppImage",border=16,sticky="nsew")
+        self.element_create("backGroundGrayElementApp"+str(numberOfWidget),"image","backGroundGrayAppImage",border=16,sticky="nsew")
 
-        self.layout("backGroundGrayApp"+str(numberOfAppserver),[("backGroundGrayElementApp"+str(numberOfAppserver),{"sticky": "nsew","expand":True})])
+        self.layout("backGroundGrayApp"+str(numberOfWidget),[("backGroundGrayElementApp"+str(numberOfWidget),{"sticky": "nsew","expand":True})])

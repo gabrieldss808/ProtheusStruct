@@ -1,19 +1,27 @@
-####17/07/2020 14:48:42
+####22/07/2020 16:32:03
 Scan Struct Iniciando... 
 
-####17/07/2020 14:48:42
+####22/07/2020 16:32:03
 Procurando Appservers...
-####17/07/2020 14:48:42
-Procurando Smartclients...
-####17/07/2020 14:48:43
+####22/07/2020 16:32:03
+Filtrando Dados do Appserver C:\TOTVS12\License\bin\appserver\appserver.ini
+####22/07/2020 16:32:03
 Filtrando Dados do Appserver C:\TOTVS12\Protheus\Protheus\bin\appserver\appserver.ini
-####17/07/2020 14:48:43
-Filtrando Dados do Smartclient C:\TOTVS12\Protheus\Protheus\bin\smartclient\smartclient.ini
-####17/07/2020 14:48:43
+####22/07/2020 16:32:03
 Filtrando Dados do Appserver C:\TOTVS12\Protheus\Protheus\bin\appserver_ws\appserver.ini
-####17/07/2020 14:48:43
-Foram encontrados 1 Smartclients Na Busca da Pasta: C:/TOTVS12/Protheus
-####17/07/2020 14:48:43
+####22/07/2020 16:32:03
 Filtrando Dados do Appserver C:\TOTVS12\Protheus\Protheus\bin\appserver_ws_rest\appserver.ini
-####17/07/2020 14:48:43
-Foram encontrados 3 AppServers Na Busca da Pasta: C:/TOTVS12/Protheus
+####22/07/2020 16:32:03
+Filtrando Dados do Appserver C:\TOTVS12\TSS\TSS_12_25\bin\appserver\appserver.ini
+####22/07/2020 16:32:03
+Foram encontrados 5 AppServers Na Busca da Pasta: C:/TOTVS12
+####22/07/2020 16:32:03
+Procurando Smartclients...
+####22/07/2020 16:32:03
+Filtrando Dados do Smartclient C:\TOTVS12\License\bin\monitor\smartclient.ini
+####22/07/2020 16:32:03
+Filtrando Dados do Smartclient C:\TOTVS12\Protheus\Protheus\bin\smartclient\smartclient.ini
+####22/07/2020 16:32:03
+Filtrando Dados do Smartclient C:\TOTVS12\TSS\TSS_12_25\bin\smartclient\smartclient.ini
+####22/07/2020 16:32:03
+Foram encontrados 3 Smartclients Na Busca da Pasta: C:/TOTVS12

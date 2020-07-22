@@ -68,7 +68,9 @@ class scanStruct():
         try:
 
             self.__log.consoleLogAdd('Procurando Appservers...')
-            self.textProgressExecute = 'Procurando Appservers...'
+
+            atuTextExecute = Thread(target=self.AtutextProgressExecute,args=['Procurando Appservers...'])
+            atuTextExecute.start()
 
             self.__searchAppservers()
         except Exception as appserverError:
@@ -82,7 +84,9 @@ class scanStruct():
         try:
 
             self.__log.consoleLogAdd('Procurando Smartclients...')
-            self.textProgressExecute = 'Procurando Smartclients...'
+
+            atuTextExecute = Thread(target=self.AtutextProgressExecute,args=['Procurando Smartclients...'])
+            atuTextExecute.start()
 
             self.__searchSmartclient()
         except Exception as smartclientError:
@@ -131,7 +135,8 @@ class scanStruct():
 
         for smartclientPure in smartclientsPure:
             
-            self.textProgressExecute = 'Filtrando dados de Smartclient...'
+            atuTextExecute = Thread(target=self.AtutextProgressExecute,args=['Filtrando dados do Smartclient...'])
+            atuTextExecute.start()
 
             try:
 
@@ -149,24 +154,31 @@ class scanStruct():
 
     def __createSmartclientObject(self,smartclientPure):
 
-        SmarArquivo = open(smartclientPure)
+        booleanSection = True
+
+        SmartclientArquivo = open(smartclientPure)
         boolSmartClient = False
 
         smartclientObject = copy(smartclient())
-        smartclientObject.cdir = SmarArquivo.name
+        smartclientObject.cdir = SmartclientArquivo.name
 
         Config = ConfigParser()
-        Config.read_file(SmarArquivo)
+        Config.read_file(SmartclientArquivo)
 
         for section in Config.sections():
 
             for properties in Config[section].keys():
 
                 if(properties.upper() in self.smartclientKeys):
+
+                    if(booleanSection):
+                        smartclientObject.cContent += 'Seção: ' + section + ' \n\t ' 
+                        booleanSection = False
                     
-                    smartclientObject.cContent += 'Seção: ' + section + '\n\t ' + properties + ': '+Config[section][properties] + ' \n '
+                    smartclientObject.cContent += ' \n\t ' + properties + ': '+Config[section][properties] + ' \n '
                     boolSmartClient = True
-        
+            booleanSection = True
+
         if(boolSmartClient):
 
             self.__smartclients.append(smartclientObject)
@@ -181,7 +193,8 @@ class scanStruct():
 
         for appServerPure in appserversPure:
             
-            self.textProgressExecute = 'Filtrando dados de Appserver...'
+            atuTextExecute = Thread(target=self.AtutextProgressExecute,args=['Filtrando dados de Appserver...'])
+            atuTextExecute.start()
 
             try:
 
@@ -278,3 +291,7 @@ class scanStruct():
             self.__appservers.append(appserverObject)
 
         Config = None
+
+    def AtutextProgressExecute(self,text=""):
+
+        self.textProgressExecute = text

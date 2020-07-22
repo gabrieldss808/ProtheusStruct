@@ -129,7 +129,7 @@ class ProtheusStructConsole():
 
         try:
 
-            with open('configConsoleMode.csv','r') as configArqCSV :
+            with open('configScan.csv','r') as configArqCSV :
 
                 readerArq = reader(configArqCSV,delimiter=';')
 
