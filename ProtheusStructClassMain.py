@@ -33,6 +33,7 @@ class ProtheusStruct(Tk):
 
         self.log = logController()
         self.log.clearLog()
+        self.log.consoleLogAdd(self.menssageInit())
 
         self.stylesBackGround = BackgroundsStyle(self)
 
@@ -45,7 +46,20 @@ class ProtheusStruct(Tk):
 
         self.resultScreen = ResultScreen(self)
         self.resultScreen.configScreen()
+    
+    def menssageInit(self):
+
+        TextIni = ''
+
+        TextIni+="##################################### Protheus Struct ######################################\n"
+        TextIni+="### Autor: Gabriel Da Silva Souza                                                        ###\n"
+        TextIni+="### Descrição: App que analisa arquivos para filtragem de dados de arquivos da           ###\n"
+        TextIni+="### estrutura Protheus                                                                   ###\n"
+        TextIni+="### Para detalhes: https://github.com/gabrieldss808/ProtheusStruct/blob/master/README.md ###\n"
+        TextIni+="### Versão: 1.0 22/07/2020                                                               ###\n"
+        TextIni+="############################################################################################"
         
+        return TextIni
     
     def configHomeScreen(self):
 
