@@ -79,11 +79,6 @@ class ProcessScreen(Frame):
                 clearTask = Thread(target=self.ClearProgressBar,args=[])
                 clearTask.start()
 
-        stageTask = Thread(target=self.updExecuteProcess,args=[])
-        stageTask.start()
-
-        self.btProcessFinish.pack(fill=X,padx=40,pady=20)
-
         if (self.scanStructObject.wasFoundSomething):
 
             if (len(self.scanStructObject.getApperservers()) > 0):
@@ -98,11 +93,21 @@ class ProcessScreen(Frame):
             else:
                 
                 self.master.smartclients = {}
-                
+
+            stageTask = Thread(target=self.updExecuteProcess,args=[])
+            stageTask.start()
+
+            self.master.resultScreen.clear()
+            self.master.resultScreen.ShowInformationResult()
+            
+            self.btProcessFinish.pack(fill=X,padx=40,pady=20)
+
             self.btProcessFinish["bg"] = "#34A853"
             self.btProcessFinish["text"] = "Proximo >"
             self.TextProgressProcess["text"] = "Pronto, agora é só ver os resultados!! :)"
         else:
+
+            self.btProcessFinish.pack(fill=X,padx=40,pady=20)
 
             self.btProcessFinish["bg"] = "#EA4335"
             self.btProcessFinish["text"] = "< Anterior"

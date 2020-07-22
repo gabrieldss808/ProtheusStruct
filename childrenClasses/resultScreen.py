@@ -1,10 +1,12 @@
-from tkinter import X,BOTTOM,LEFT
+from copy import copy
 from tkinter import Frame
 from tkinter import Label
 from tkinter import Button
+from tkinter import X,BOTTOM,LEFT,BOTH,NW
 from tkinter.ttk import Frame as FrameStyle
 from childrenClasses.stylesBackGround import BackgroundsStyle
 from childrenClasses.appserverResultCard import AppserverResultCard
+from childrenClasses.appserverPanel import AppserverPanel
 
 class ResultScreen(Frame):
 
@@ -16,6 +18,10 @@ class ResultScreen(Frame):
     style = BackgroundsStyle
     QtdAppServers = int()
     QtdSmartclients = int()
+    btAppserverShowPanel = Button
+    isAppserversPanelShow = bool()
+    appserverPanel = AppserverPanel
+    numberOfStyles = int()
 
     def configScreen(self):
 
@@ -38,8 +44,21 @@ class ResultScreen(Frame):
         self.style = BackgroundsStyle(self)
         self.style.CreateStyleResultPanel()
 
+        self.numberOfStyles = 0
+
         self.ResultPanel = FrameStyle(self,style="BackGroundGreen")
         self.ResultPanel.pack(fill=X,pady=10,padx=20)
+
+        self.btAppserverShowPanel = Button(self)
+        self.btAppserverShowPanel["bg"] = "#4285F4"
+        self.btAppserverShowPanel["font"] = ("Roboto Black","8")
+        self.btAppserverShowPanel["fg"] = "white"
+        self.btAppserverShowPanel["relief"] = "flat"
+        self.btAppserverShowPanel["command"] = self.ShowAppServerPanel
+
+        self.appserverPanel = AppserverPanel(self)
+
+        self.isAppserversPanelShow = False
 
     def ShowInformationResult(self):
 
@@ -51,8 +70,40 @@ class ResultScreen(Frame):
 
     def createAppServersResult(self):
 
-        pass
+        
+        self.btAppserverShowPanel["text"] = "Appservers("+ str(self.QtdAppServers) +") >"
+        self.btAppserverShowPanel.pack(padx=10,pady=5,anchor=NW)
+        
+        if(self.isAppserversPanelShow):
 
+            self.appserverPanel.pack_forget()
+            self.isAppserversPanelShow = False
+            self.btAppserverShowPanel["text"] = "Appservers("+ str(self.QtdAppServers) +") >"
+
+        for appserver in self.appservers:
+            
+            self.style.CreateStyleAppserverCard(self.numberOfStyles)
+
+            appserverCard = copy(AppserverResultCard(self.appserverPanel.interior,style="backGroundGrayApp"+str(self.numberOfStyles)))
+            appserverCard.configureVisualization(appserver,self.appservers.index(appserver)+1)
+            appserverCard.pack(fill=X,padx=10,pady=10)
+
+            self.numberOfStyles += 1
+
+    def ShowAppServerPanel(self):
+
+        if(self.isAppserversPanelShow):
+
+            self.appserverPanel.pack_forget()
+            self.isAppserversPanelShow = False
+            self.btAppserverShowPanel["text"] = "Appservers("+ str(self.QtdAppServers) +") >"
+        else:
+
+            self.appserverPanel.pack(fill=BOTH,expand=True)
+            self.isAppserversPanelShow = True
+            self.btAppserverShowPanel["text"] = "Appservers("+ str(self.QtdAppServers) +") <"
+
+        
     def getData(self):
 
         self.appservers = self.master.appservers
@@ -66,6 +117,10 @@ class ResultScreen(Frame):
     def clear(self):
 
         for children in self.ResultPanel.winfo_children():
+
+            children.destroy()
+        
+        for children in self.appserverPanel.interior.winfo_children():
 
             children.destroy()
         

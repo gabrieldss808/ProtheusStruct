@@ -170,7 +170,7 @@ class scanStruct():
 
                 if(properties.upper() in self.smartclientKeys):
                     
-                    smartclientObject.cContent += 'Seção: ' + section + '\n\t ' + properties + ':'+Config[section][properties] + ' \n '
+                    smartclientObject.cContent += 'Seção: ' + section + '\n\t ' + properties + ': '+Config[section][properties] + ' \n '
                     boolSmartClient = True
         
         if(boolSmartClient):
@@ -254,7 +254,7 @@ class scanStruct():
                         
                         appserverObject.listRpo.append(ArqRPO)        
                     else:
-                        appserverObject.cContent += ' \n\t ' + properties + ':'+Config[section][properties] + ' \n '
+                        appserverObject.cContent += ' \n\t ' + properties + ': '+Config[section][properties] + ' \n '
 
                 if (section.upper() == 'SERVICE'):
 

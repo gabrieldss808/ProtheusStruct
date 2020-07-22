@@ -100,8 +100,6 @@ class ProtheusStruct(Tk):
         self.processScreen.ClearComponent()
 
         self.resultScreen.pack(fill=BOTH,expand=True)
-        self.resultScreen.clear()
-        self.resultScreen.ShowInformationResult()
 
     def goToHome(self):
 
