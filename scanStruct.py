@@ -20,14 +20,13 @@ class scanStruct():
     __executeAppServer = bool
     appserverKeys = list()
     smartclientKeys = list()
-    appserverNameArq = ""
-    smartclientNameArq = ""
     cNameRPO = ''
     __log = logController
     __Maindir = ''
     __ValidServ = ValidService
     isExecuteProcess = bool
     wasFoundSomething = bool
+    textProgressExecute = ""
 
     def __init__(self,dir=''):
 
@@ -35,8 +34,6 @@ class scanStruct():
         self.__Struct = Path(dir)
         self.appserverKeys = {'SOURCEPATH','PORT','ROOTPATH','SERVER','ALIAS'}
         self.smartclientKeys = {'SERVER','PORT','ENVSERVER'}
-        self.appserverNameArq = "appserver"
-        self.smartclientNameArq = "smartclient"
         self.cNameRPO = 'tttp120.rpo'
         self.__log = logController()
         self.__ValidServ = ValidService()
@@ -64,7 +61,6 @@ class scanStruct():
         self.__appservers.clear()
         self.__smartclients.clear()
 
-
         self.isExecuteProcess = True
 
         self.__log.consoleLogAdd('Scan Struct Iniciando... \n')
@@ -72,6 +68,7 @@ class scanStruct():
         try:
 
             self.__log.consoleLogAdd('Procurando Appservers...')
+            self.textProgressExecute = 'Procurando Appservers...'
 
             self.__searchAppservers()
         except Exception as appserverError:
@@ -85,6 +82,7 @@ class scanStruct():
         try:
 
             self.__log.consoleLogAdd('Procurando Smartclients...')
+            self.textProgressExecute = 'Procurando Smartclients...'
 
             self.__searchSmartclient()
         except Exception as smartclientError:
@@ -129,15 +127,11 @@ class scanStruct():
 
         StringErroSmar = ''
         
-        if(self.smartclientNameArq == ""):
-
-            smartclientsPure = list(self.__Struct.glob('**/*'+ self.smartclientNameArq +'.ini'))
-        else:
-
-            smartclientsPure = list(self.__Struct.glob('**/*'+ self.smartclientNameArq +'*.ini'))
-
+        smartclientsPure = list(self.__Struct.glob('**/smartclient.ini'))
 
         for smartclientPure in smartclientsPure:
+            
+            self.textProgressExecute = 'Filtrando dados de Smartclient...'
 
             try:
 
@@ -183,14 +177,11 @@ class scanStruct():
 
         StringErroAp = ''
 
-        if(self.appserverNameArq == ""):
-
-            appserversPure = list(self.__Struct.glob('**/*' + self.appserverNameArq + '.ini'))
-        else:
-
-            appserversPure = list(self.__Struct.glob('**/*' + self.appserverNameArq + '*.ini'))
+        appserversPure = list(self.__Struct.glob('**/appserver.ini'))
 
         for appServerPure in appserversPure:
+            
+            self.textProgressExecute = 'Filtrando dados de Appserver...'
 
             try:
 
@@ -247,7 +238,8 @@ class scanStruct():
 
                             ArqRPO.lEncontrado = True
                             ArqRPO.cDir = rpoDir
-                            ArqRPO.cDataAlteracao = str(datetime.datetime.fromtimestamp(rpo.stat().st_mtime))
+                            ArqRPO.cDataAlteracao = datetime.datetime.fromtimestamp(rpo.stat().st_mtime).strftime('%d-%m-%Y %H:%M:%S')
+
                         else:
                             ArqRPO.lEncontrado = False
                             ArqRPO.cDir = rpoDir

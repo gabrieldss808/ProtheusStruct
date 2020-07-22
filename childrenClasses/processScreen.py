@@ -39,7 +39,6 @@ class ProcessScreen(Frame):
         self.TextProgressProcess["bg"] = "#9E9E9E"
         self.TextProgressProcess["font"] = ("Roboto Black","20")
         self.TextProgressProcess["fg"] = "white"
-        self.TextProgressProcess["text"] = "Procurando arquivos da estrutura Protheus..."
         self.TextProgressProcess.pack(padx=10,pady=15,expand=True)
 
 
@@ -125,6 +124,7 @@ class ProcessScreen(Frame):
     def updProgressBarRun(self):
 
         self.progressNumber.set(self.progressNumber.get() + 1)
+        self.TextProgressProcess["text"] = self.scanStructObject.textProgressExecute
     
     def ProcessFinish(self):
 

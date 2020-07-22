@@ -3,7 +3,7 @@ from tkinter import Scrollbar
 from tkinter import Canvas
 from tkinter import VERTICAL, RIGHT, LEFT, BOTH, TRUE, FALSE, NW, Y, X
 
-class AppserverPanel(Frame):
+class PanelInterior(Frame):
 
     def __init__(self, parent, *args, **kw):
         Frame.__init__(self, parent, *args, **kw)
