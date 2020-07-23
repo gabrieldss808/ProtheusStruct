@@ -22,7 +22,7 @@ Com isso na area de Suporte é possivel trazer mais agilidade na aplicação de 
 
 Feita para ter um acesso acelerado a ferramenta.
 
-[Download ProtheusStruct Console Version] (https://github.com/gabrieldss808/ProtheusStruct/releases/tag/1.0)
+[Download ProtheusStruct Console Version](https://github.com/gabrieldss808/ProtheusStruct/releases/tag/1.1-consoleVersion)
 
 O funcionamento dele consiste em informar a pasta aonde será analisado e o programa irá gerar um arquivo txt com o resultado:
 
