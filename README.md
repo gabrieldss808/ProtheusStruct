@@ -14,7 +14,7 @@ Com isso na area de Suporte é possivel trazer mais agilidade na aplicação de 
 
 # Como baixar
 
-**Efetue o o Download no canto esquerdo ou clique** [aqui]()
+**Efetue o o Download no canto esquerdo ou clique** [aqui](https://github.com/gabrieldss808/ProtheusStruct/releases/tag/1.0-VisualInterface)
 
 <hr>
 
@@ -22,7 +22,7 @@ Com isso na area de Suporte é possivel trazer mais agilidade na aplicação de 
 
 Feita para ter um acesso acelerado a ferramenta.
 
-[Download ProtheusStruct Console Version](https://github.com/gabrieldss808/ProtheusStruct/releases/tag/1.0)
+[Download ProtheusStruct Console Version] (https://github.com/gabrieldss808/ProtheusStruct/releases/tag/1.0)
 
 O funcionamento dele consiste em informar a pasta aonde será analisado e o programa irá gerar um arquivo txt com o resultado:
 
