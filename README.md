@@ -40,7 +40,7 @@ O funcionamento dele consiste em informar a pasta aonde será analisado e o prog
 
 ***Ele precisa estar com o Nome abaixo:***
 
-![image](https://user-images.githubusercontent.com/45453977/87817516-7b93cc80-c83f-11ea-9791-e66455bfcd31.png)
+![image](https://user-images.githubusercontent.com/45453977/88328440-d83f2d80-ccfe-11ea-9c42-ce3d79717c2c.png)
 
 ***Segue o exemplo de configuração:***
 
