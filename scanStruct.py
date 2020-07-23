@@ -38,22 +38,7 @@ class scanStruct():
         self.__log = logController()
         self.__ValidServ = ValidService()
 
-    def getProgressStatus(self):
-
-        return self.__progressStatus
-
-    def addAppServerKey(self,appServerKey=''):
-
-        if(appServerKey != ''):
-
-            self.appserverKeys.add(appServerKey.upper())
-
-    def addSmartClientKey(self,smartClientKey=''):
-
-        if(smartClientKey != ''):
-
-            self.smartclientKeys.add(smartClientKey.upper())
-
+    #controla o processo de execução do Scan
     def execute(self):
 
         StringErroAp = ''
@@ -100,97 +85,14 @@ class scanStruct():
         self.isExecuteProcess = False
         self.FoundSomething()
 
-    def FoundSomething(self):
-
-        if(self.getSmartclients() == {} and self.getApperservers() == {}):
-
-            self.wasFoundSomething = False
-        else:
-            
-            self.wasFoundSomething = True
-        
-    def getApperservers(self):
-
-        if(len(self.__appservers) > 0):
-            
-            return self.__appservers
-        else:
-
-            return {}
-    
-    def getSmartclients(self):
-
-        if(len(self.__smartclients) > 0):
-            
-            return self.__smartclients
-        else:
-
-            return {}
-
-    def __searchSmartclient(self):
-
-        StringErroSmar = ''
-        
-        smartclientsPure = list(self.__Struct.glob('**/smartclient.ini'))
-
-        for smartclientPure in smartclientsPure:
-            
-            atuTextExecute = Thread(target=self.AtutextProgressExecute,args=['Filtrando dados do Smartclient...'])
-            atuTextExecute.start()
-
-            try:
-
-                self.__log.consoleLogAdd('Filtrando Dados do Smartclient ' + str(smartclientPure))
-                self.__createSmartclientObject(smartclientPure)
-            except Exception as smartclientError:
-
-                StringErroSmar+= '###########################################################\n'
-                StringErroSmar+= "Erro no Smartclient: \t" + str(smartclientsPure) + '\n\t' + str(smartclientError) + "\n"
-                StringErroSmar+= '###########################################################\n'
-
-                self.__log.consoleLogAdd(StringErroSmar)
-        
-        self.__log.consoleLogAdd('Foram encontrados ' + str(len(self.__smartclients)) + ' Smartclients Na Busca da Pasta: ' + self.__Maindir)
-
-    def __createSmartclientObject(self,smartclientPure):
-
-        booleanSection = True
-
-        SmartclientArquivo = open(smartclientPure)
-        boolSmartClient = False
-
-        smartclientObject = copy(smartclient())
-        smartclientObject.cdir = SmartclientArquivo.name
-
-        Config = ConfigParser()
-        Config.read_file(SmartclientArquivo)
-
-        for section in Config.sections():
-
-            for properties in Config[section].keys():
-
-                if(properties.upper() in self.smartclientKeys):
-
-                    if(booleanSection):
-                        smartclientObject.cContent += 'Seção: ' + section + ' \n\t ' 
-                        booleanSection = False
-                    
-                    smartclientObject.cContent += ' \n\t ' + properties + ': '+Config[section][properties] + ' \n '
-                    boolSmartClient = True
-            booleanSection = True
-
-        if(boolSmartClient):
-
-            self.__smartclients.append(smartclientObject)
-
-        Config = None
-
     def __searchAppservers(self):
 
         StringErroAp = ''
 
+        #lista todos os arquivos appserver.ini
         appserversPure = list(self.__Struct.glob('**/appserver.ini'))
 
+        #filtra os dados para cada arquivo encontrado e gera um object com as principais informações
         for appServerPure in appserversPure:
             
             atuTextExecute = Thread(target=self.AtutextProgressExecute,args=['Filtrando dados de Appserver...'])
@@ -199,6 +101,7 @@ class scanStruct():
             try:
 
                 self.__log.consoleLogAdd('Filtrando Dados do Appserver ' + str(appServerPure))
+
                 self.__createAppserverObject(appServerPure)
             except Exception as appserverError:
                 
@@ -225,7 +128,8 @@ class scanStruct():
         for section in Config.sections():
 
             for properties in Config[section].keys():
-                            
+                
+                #feito para filtrar os dados a partir da chaves
                 if(properties.upper() in self.appserverKeys ):
 
                     boolAppserver = True
@@ -292,6 +196,113 @@ class scanStruct():
 
         Config = None
 
+    def __searchSmartclient(self):
+
+        StringErroSmar = ''
+        
+        #lista todos os arquivos smartclient.ini 
+        smartclientsPure = list(self.__Struct.glob('**/smartclient.ini'))
+
+        #filtra os dados de cada smartclient.ini encontrado
+        for smartclientPure in smartclientsPure:
+            
+            atuTextExecute = Thread(target=self.AtutextProgressExecute,args=['Filtrando dados do Smartclient...'])
+            atuTextExecute.start()
+
+            try:
+
+                self.__log.consoleLogAdd('Filtrando Dados do Smartclient ' + str(smartclientPure))
+
+                #cria um objeto com os dados filtrados de cada smartclient.ini
+                self.__createSmartclientObject(smartclientPure)
+            except Exception as smartclientError:
+
+                StringErroSmar+= '###########################################################\n'
+                StringErroSmar+= "Erro no Smartclient: \t" + str(smartclientsPure) + '\n\t' + str(smartclientError) + "\n"
+                StringErroSmar+= '###########################################################\n'
+
+                self.__log.consoleLogAdd(StringErroSmar)
+        
+        self.__log.consoleLogAdd('Foram encontrados ' + str(len(self.__smartclients)) + ' Smartclients Na Busca da Pasta: ' + self.__Maindir)
+
+    def __createSmartclientObject(self,smartclientPure):
+
+        booleanSection = True
+
+        SmartclientArquivo = open(smartclientPure)
+        boolSmartClient = False
+
+        smartclientObject = copy(smartclient())
+        smartclientObject.cdir = SmartclientArquivo.name
+
+        Config = ConfigParser()
+        Config.read_file(SmartclientArquivo)
+
+        for section in Config.sections():
+
+            for properties in Config[section].keys():
+
+                if(properties.upper() in self.smartclientKeys):
+
+                    if(booleanSection):
+                        smartclientObject.cContent += 'Seção: ' + section + ' \n\t ' 
+                        booleanSection = False
+                    
+                    smartclientObject.cContent += ' \n\t ' + properties + ': '+Config[section][properties] + ' \n '
+                    boolSmartClient = True
+            booleanSection = True
+
+        if(boolSmartClient):
+
+            self.__smartclients.append(smartclientObject)
+
+        Config = None
+
+    ### abaixo funções segundaria que auxiliam o processo de execução da classe inteira
+
     def AtutextProgressExecute(self,text=""):
 
         self.textProgressExecute = text
+
+    def getProgressStatus(self):
+
+        return self.__progressStatus
+
+    def addAppServerKey(self,appServerKey=''):
+
+        if(appServerKey != ''):
+
+            self.appserverKeys.add(appServerKey.upper())
+
+    def addSmartClientKey(self,smartClientKey=''):
+
+        if(smartClientKey != ''):
+
+            self.smartclientKeys.add(smartClientKey.upper())
+
+    def FoundSomething(self):
+
+        if(self.getSmartclients() == {} and self.getApperservers() == {}):
+
+            self.wasFoundSomething = False
+        else:
+            
+            self.wasFoundSomething = True
+        
+    def getApperservers(self):
+
+        if(len(self.__appservers) > 0):
+            
+            return self.__appservers
+        else:
+
+            return {}
+    
+    def getSmartclients(self):
+
+        if(len(self.__smartclients) > 0):
+            
+            return self.__smartclients
+        else:
+
+            return {}

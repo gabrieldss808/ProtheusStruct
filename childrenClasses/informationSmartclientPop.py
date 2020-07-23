@@ -1,4 +1,4 @@
-from tkinter import Tk
+from tkinter import Toplevel
 from tkinter import Text
 from tkinter import Frame
 from tkinter import Label
@@ -7,7 +7,7 @@ from tkinter import BOTH,X,LEFT
 from childrenClasses.classChildrens import smartclient,RPO
 from childrenClasses.panelScroll import PanelInterior
 
-class InformationSmartclientPop(Tk):
+class InformationSmartclientPop(Toplevel):
 
     contentScreen = Text
     contentScreenRPO = Text

@@ -14,6 +14,7 @@ class SmartclientResultCard(Frame):
     numberOfSmartclient = int()
     lbMainInformation = Label
     btShowContentSmartclient = Button
+    informatioContentScreen = InformationSmartclientPop
 
     def configureVisualization(self,Smartclient=smartclient,numberOfSmartclient=0):
 
@@ -23,7 +24,7 @@ class SmartclientResultCard(Frame):
         self.configEvents()
 
         self.createVisualComponents()
-    
+
     def createVisualComponents(self):
 
         self.createTopInformation()
@@ -47,12 +48,11 @@ class SmartclientResultCard(Frame):
         self.btShowContentSmartclient.pack(fill=X,padx=10,pady=10)
 
     def ShowSmartclientContentCommand(self):
-
-        informatioContentScreen = InformationSmartclientPop()
-        informatioContentScreen.ConfigPop()
-        informatioContentScreen.inputContent(self.smartclientData)
-        informatioContentScreen.mainloop()
-
+        
+        self.informatioContentScreen = InformationSmartclientPop()
+        self.informatioContentScreen.ConfigPop()
+        self.informatioContentScreen.inputContent(self.smartclientData)
+        self.informatioContentScreen.mainloop()
 
     def createTopInformation(self):
 

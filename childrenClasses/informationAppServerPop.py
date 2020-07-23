@@ -1,4 +1,4 @@
-from tkinter import Tk
+from tkinter import Toplevel
 from tkinter import Text
 from tkinter import Frame
 from tkinter import Label
@@ -7,7 +7,7 @@ from tkinter import BOTH,X,LEFT
 from childrenClasses.classChildrens import appserver,RPO
 from childrenClasses.panelScroll import PanelInterior
 
-class InformationAppServerPop(Tk):
+class InformationAppServerPop(Toplevel):
 
     contentScreen = Text
     contentScreenRPO = Text
@@ -40,6 +40,13 @@ class InformationAppServerPop(Tk):
         self.contentScreen["fg"] = "white"
         self.contentScreen["font"] = ("Roboto Black","10")
         self.contentScreen.pack(padx=10,pady=5,fill=BOTH,expand=True)
+
+        self.protocol("WM_DELETE_WINDOW", self.close_window)
+
+    def close_window(self):
+
+        self.destroy()
+
 
     def inputContent(self,AppserverInput=appserver):
 

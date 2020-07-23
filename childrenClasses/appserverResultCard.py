@@ -55,11 +55,10 @@ class AppserverResultCard(Frame):
 
     def ShowAppserverContentCommand(self):
 
-        informatioContentScreen = InformationAppServerPop()
-        informatioContentScreen.ConfigPop()
-        informatioContentScreen.inputContent(self.appserverData)
-        informatioContentScreen.mainloop()
-
+        self.informatioContentScreen = InformationAppServerPop()
+        self.informatioContentScreen.ConfigPop()
+        self.informatioContentScreen.inputContent(self.appserverData)        
+        self.informatioContentScreen.mainloop()
 
     def createServiceInformation(self):
 

@@ -10,6 +10,7 @@ from childrenClasses.processScreen import ProcessScreen
 from childrenClasses.resultScreen import ResultScreen
 from childrenClasses.stylesBackGround import BackgroundsStyle
 
+# Classe responsável por Controlar toda a interface e gestão de componentes do Protheus Struct
 class ProtheusStruct(Tk):
 
     log =  logController
@@ -46,7 +47,15 @@ class ProtheusStruct(Tk):
 
         self.resultScreen = ResultScreen(self)
         self.resultScreen.configScreen()
-    
+
+        self.protocol("WM_DELETE_WINDOW", self.close_window)
+
+    def close_window(self):
+
+        self.destroy()
+
+        sys.exit()
+
     def menssageInit(self):
 
         TextIni = ''
